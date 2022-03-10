@@ -13,16 +13,16 @@ class Quiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
-      children: [
-        Question(
-          questions[index]['question'] as String,
-        ),
-        ...(questions[index]['answers'] as List<Map<String, Object>>)
-            .map((answer) {
-          return Answer(
-              () => handler(answer['score']), (answer['ans'] as String));
-        }).toList()
-      ],
-    ));
+          children: [
+            Question(
+              questions[index]['question'] as String,
+            ),
+            ...(questions[index]['answers'] as List<Map<String, Object>>)
+                .map((answer) {
+              return Answer(
+                      () => handler(answer['score']), (answer['ans'] as String));
+            }).toList()
+          ],
+        ));
   }
 }
