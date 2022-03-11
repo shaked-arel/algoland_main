@@ -8,12 +8,32 @@ import 'algolandapp/generatediphone11prox7widget/GeneratedIPhone11ProX7Widget.da
 import 'algolandapp/generatediphone11prox8widget/GeneratedIPhone11ProX8Widget.dart';
 import 'algolandapp/generatedimage8widget/GeneratedImage8Widget.dart';
 import 'algolandapp/generatedimage9widget/GeneratedImage9Widget.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import './auth.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Firebase.apps.isEmpty) {
+    await Firebase.initializeApp(
+      name: 'check',
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  }
   runApp(AlgolandApp());
 }
 
 class AlgolandApp extends StatelessWidget {
+  const AlgolandApp({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: AuthGate(),
+    );
+  }
+}
+
+class Start extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

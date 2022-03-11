@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "595274442507",
+    "project_id": "algoland-11559",
+    "storage_bucket": "algoland-11559.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595274442507:android:7abcc6fda47d225058a40e",
+        "android_client_info": {
+          "package_name": "com.example.algoland"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595274442507-f1k2mr6sbjh3q0jer9j62e75akn1p89g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6Myt-PPyPzkEdMdq-QdclD173V2DpXhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595274442507-f1k2mr6sbjh3q0jer9j62e75akn1p89g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
