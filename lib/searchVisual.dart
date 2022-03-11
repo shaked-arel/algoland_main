@@ -1,12 +1,11 @@
-import 'package:binarysearch/binary_search/BinarySearchProve.dart';
+import './BinarySearchProve.dart';
 import 'SearchModel.dart';
 import 'searchWidget.dart';
-import 'package:binarysearch/binary_search/searchWidget.dart';
+import './searchWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SearchVisual extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Center(

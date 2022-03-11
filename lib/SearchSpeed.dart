@@ -1,4 +1,4 @@
-import 'package:binarysearch/binary_search/BinarySearchProve.dart';
+import './BinarySearchProve.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

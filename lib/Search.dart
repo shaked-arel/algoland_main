@@ -1,9 +1,8 @@
-import 'package:binarysearch/binary_search/BinarySearchProve.dart';
+import './BinarySearchProve.dart';
 import 'SearchProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-
 
 class Search extends StatefulWidget {
   // const Search({
@@ -11,16 +10,19 @@ class Search extends StatefulWidget {
   // }) : super(key: key);
 
   @override
-  _SearchState<BinarySearchProvider> createState() => _SearchState<BinarySearchProvider>();
+  _SearchState<BinarySearchProvider> createState() =>
+      _SearchState<BinarySearchProvider>();
 }
 
-class _SearchState<BinartSearchProvider extends SearchProvider> extends State<Search> {
+class _SearchState<BinartSearchProvider extends SearchProvider>
+    extends State<Search> {
   final searchController = TextEditingController();
 
   void _search() {
     try {
       final val = int.parse(searchController.text);
-      Provider.of<BinartSearchProvider>(context, listen: false).search(value: val);
+      Provider.of<BinartSearchProvider>(context, listen: false)
+          .search(value: val);
     } catch (e) {
       print(e);
     }

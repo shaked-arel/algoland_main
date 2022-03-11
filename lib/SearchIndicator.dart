@@ -1,5 +1,5 @@
 import 'package:after_layout/after_layout.dart';
-import 'package:binarysearch/binary_search/BinarySearchProve.dart';
+import './BinarySearchProve.dart';
 import 'SearchModel.dart';
 import 'SearchProvider.dart';
 import 'package:flutter/material.dart';
@@ -13,17 +13,18 @@ class SearchIndicator extends StatefulWidget {
   }) : assert(parentKey != null);
 
   @override
-  _SearchIndicatorState<BinarySearchProvider> createState() => _SearchIndicatorState<BinarySearchProvider>();
+  _SearchIndicatorState<BinarySearchProvider> createState() =>
+      _SearchIndicatorState<BinarySearchProvider>();
 }
 
 class _SearchIndicatorState<BinarySearchProvider extends SearchProvider>
-    extends State<SearchIndicator>
-    with AfterLayoutMixin<SearchIndicator> {
+    extends State<SearchIndicator> with AfterLayoutMixin<SearchIndicator> {
   var _position = Offset.zero;
 
   @override
   void afterFirstLayout(BuildContext context) {
-    final numbers = Provider.of<BinarySearchProvider>(context, listen: false).numbers;
+    final numbers =
+        Provider.of<BinarySearchProvider>(context, listen: false).numbers;
     setState(() {
       _position = _getIndicatorOffset(numbers[numbers.length ~/ 2]);
     });
@@ -32,9 +33,10 @@ class _SearchIndicatorState<BinarySearchProvider extends SearchProvider>
   Offset _getIndicatorOffset(SearchModel number) {
     var pos = Offset.zero;
     try {
-      final RenderBox rObject = number.key.currentContext!.findRenderObject() as RenderBox;
+      final RenderBox rObject =
+          number.key.currentContext!.findRenderObject() as RenderBox;
       final RenderBox parentObject =
-      widget.parentKey.currentContext!.findRenderObject() as RenderBox;
+          widget.parentKey.currentContext!.findRenderObject() as RenderBox;
       final parentPos = parentObject.localToGlobal(const Offset(0, 0));
       pos = -rObject.globalToLocal(parentPos);
     } catch (e) {
