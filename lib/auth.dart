@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutterfire_ui/auth.dart';
+import 'HomePage.dart';
+import 'Alg.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({Key? key}) : super(key: key);
@@ -27,7 +29,7 @@ class AuthGate extends StatelessWidget {
         // Render your application if authenticated
         print(context);
         print(snapshot);
-        return Start();
+        return Alg();
       },
     );
   }

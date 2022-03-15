@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'binary_search/BinarySearchProve.dart';
-import 'binary_search/SearchPage.dart';
+import 'BinarySearchProve.dart';
+import 'SearchPage.dart';
 
 class BinarySearchSimulation extends StatelessWidget {
   @override
@@ -18,7 +18,9 @@ class BinarySearchSimulation extends StatelessWidget {
               create: (_) => BinarySearchProvider(),
             ),
           ],
-          child: SearchPage(title: '',),
+          child: SearchPage(
+            title: '',
+          ),
         ),
       ),
     );

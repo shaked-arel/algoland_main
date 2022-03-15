@@ -56,10 +56,10 @@
 //   }
 // }
 import 'package:flutter/material.dart';
-import 'HomePage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import './auth.dart';
+import 'HomePage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -74,6 +74,7 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -82,15 +83,5 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: HomePage());
-  }
-}
-
-class AlgolandApp extends StatelessWidget {
-  const AlgolandApp({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: AuthGate(),
-    );
   }
 }
