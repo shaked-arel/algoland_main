@@ -81,6 +81,7 @@ class _QuizState extends State<QuizApp> {
               : Result(
                   _totalScore,
                   _resetQuiz,
+                  _questions.length,
                 )),
     );
   }

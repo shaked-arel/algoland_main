@@ -1,13 +1,13 @@
-import 'package:binarysearch/binary_search/BinarySearchProve.dart';
+import './BinarySearchProve.dart';
 
 import 'SearchProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SearchMessage extends StatefulWidget {
-
   @override
-  _SearchMessageState<BinarySearchProvider> createState() => _SearchMessageState<BinarySearchProvider>();
+  _SearchMessageState<BinarySearchProvider> createState() =>
+      _SearchMessageState<BinarySearchProvider>();
 }
 
 class _SearchMessageState<T extends SearchProvider>
@@ -32,7 +32,7 @@ class _SearchMessageState<T extends SearchProvider>
             _color = Colors.red;
           } else {
             outputMessage =
-            'Value found at position: ${(position + 1).toString()}';
+                'Value found at position: ${(position + 1).toString()}';
             _fontSize = 24;
             _color = Colors.black;
           }
@@ -42,9 +42,9 @@ class _SearchMessageState<T extends SearchProvider>
               duration: const Duration(milliseconds: 400),
               curve: Curves.ease,
               style: Theme.of(context).textTheme.headline5!.copyWith(
-                fontSize: _fontSize,
-                color: _color,
-              ),
+                    fontSize: _fontSize,
+                    color: _color,
+                  ),
               child: Text(
                 outputMessage,
               ),

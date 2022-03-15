@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'bubble_sort/BubbleSortProve.dart';
-import 'bubble_sort/SortPage.dart';
+import 'BubbleSortProv.dart';
+import 'SortPage.dart';
 
 class BubbleSortSimulation extends StatelessWidget {
   @override
@@ -18,7 +18,9 @@ class BubbleSortSimulation extends StatelessWidget {
               create: (_) => BubbleSortProvider(),
             ),
           ],
-          child: SortPage(title: '',),
+          child: SortPage(
+            title: '',
+          ),
         ),
       ),
     );
