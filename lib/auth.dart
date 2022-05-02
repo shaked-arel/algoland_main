@@ -1,10 +1,7 @@
-import './main.dart';
+import 'package:binarysearch/Algorithms.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 import 'package:flutterfire_ui/auth.dart';
-import 'HomePage.dart';
 import 'Alg.dart';
 
 class AuthGate extends StatelessWidget {
@@ -29,7 +26,7 @@ class AuthGate extends StatelessWidget {
         // Render your application if authenticated
         print(context);
         print(snapshot);
-        return Alg();
+        return Algorithms();
       },
     );
   }

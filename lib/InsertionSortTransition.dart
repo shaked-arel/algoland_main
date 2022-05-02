@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:popup_card/popup_card.dart';
 import 'quizInsertionSort.dart';
 import 'InsertionSortSimulation.dart';
 
@@ -13,7 +14,7 @@ class InsertionSortTransition extends StatelessWidget {
                 color: Colors.white, fontSize: 20, fontFamily: 'Calibri'),
           ),
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: Icon(Icons.arrow_back_ios),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -24,6 +25,28 @@ class InsertionSortTransition extends StatelessWidget {
         floatingActionButton: Stack(
           fit: StackFit.expand,
           children: [
+            PopupItemLauncher(
+              tag: 'test',
+              child: Align(
+                alignment: new Alignment(1.2, -0.6), // top left
+                child: Material(
+                  elevation: 0,
+                  child: const Icon(
+                    Icons.announcement_outlined,
+                    size: 45,
+                  ),
+                ),
+              ),
+              popUp: PopUpItem(
+                padding: EdgeInsets.all(8),
+                color: Colors.white,
+                shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                elevation: 2,
+                tag: 'test',
+                child: PopUpItemBody(),
+              ),
+            ),
             Align(
               alignment: new Alignment(0, -0.5), // top left
               child: Container(
@@ -44,7 +67,10 @@ class InsertionSortTransition extends StatelessWidget {
                         fontFamily: 'Calibri'),
                   ),
                   onPressed: () {
-                    runApp(quizInsertionSort());
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => quizInsertionSort()));
                   },
                 ),
               ),
@@ -68,8 +94,10 @@ class InsertionSortTransition extends StatelessWidget {
                         fontSize: 20,
                         fontFamily: 'Calibri'),
                   ),
-                  onPressed: () {
-                    runApp(InsertionSortSimulation());
+                  onPressed: () {Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => InsertionSortSimulation()));
                   },
                 ),
               ),
@@ -100,4 +128,40 @@ class InsertionSortTransition extends StatelessWidget {
           ],
         ),
       );
+}
+
+class PopUpItemBody extends StatelessWidget {
+  const PopUpItemBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // const Divider(
+          //   color: Colors.white,
+          //   thickness: 0.2,
+          // ),
+          const TextField(
+              decoration: InputDecoration(
+                hintText: ' In an insertion sort, each element in the array is checked with the'
+                    ' previous elements. '
+                    'With each iteration, the sorting algorithm removes one element at a time and finds'
+                    ' the appropriate location within the sorted array and inserts it there.',
+                border: InputBorder.none,
+              ),
+              cursorColor: Colors.white,
+              maxLines: 7
+          ),
+          // const Divider(
+          //   color: Colors.white,
+          //   thickness: 0.2,
+          // ),
+        ],
+      ),
+    );
+  }
 }

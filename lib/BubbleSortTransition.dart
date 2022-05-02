@@ -1,7 +1,8 @@
-import 'package:binarysearch/BubbleSortSimulation.dart';
 import 'package:binarysearch/quizBubbleSort.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:popup_card/popup_card.dart';
+import 'BubbleSortSimulation.dart';
 
 
 class BubbleSortTransition extends StatelessWidget {
@@ -11,13 +12,36 @@ class BubbleSortTransition extends StatelessWidget {
       title: Text('appBarTitle', style: TextStyle(
           color: Colors.white, fontSize: 20,  fontFamily: 'Calibri'),
       ),
-      leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () { Navigator.pop(context); },),
+      leading: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: () { Navigator.pop(context); },),
     ),
       body: const Center(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Stack(
         fit: StackFit.expand,
         children: [
+          PopupItemLauncher(
+            tag: 'test',
+            child: Align(
+              alignment: new Alignment(1.2, -0.6), // top left
+              child: Material(
+                elevation: 0,
+                child: const Icon(
+                  Icons.announcement_outlined,
+                  //Icons.add_rounded,
+                  size: 45,
+                ),
+              ),
+            ),
+            popUp: PopUpItem(
+              padding: EdgeInsets.all(8),
+              color: Colors.white,
+              shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+              elevation: 2,
+              tag: 'test',
+              child: PopUpItemBody(),
+            ),
+          ),
           Align(
             alignment: new Alignment(0, -0.5), // top left
             child: Container(
@@ -35,8 +59,10 @@ class BubbleSortTransition extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.black, fontSize: 20,  fontFamily: 'Calibri'),
                 ),
-                onPressed: () {
-                  runApp(quizBubbleSort());
+                onPressed: () { Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => quizBubbleSort()));
                 },
               ),
             ),
@@ -59,8 +85,10 @@ class BubbleSortTransition extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.black, fontSize: 20,  fontFamily: 'Calibri'),
                 ),
-                onPressed: () {
-                  runApp(BubbleSortSimulation());
+                onPressed: () {Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => BubbleSortSimulation()));
                 },
               ),
             ),
@@ -93,4 +121,36 @@ class BubbleSortTransition extends StatelessWidget {
     );
   }
 
+class PopUpItemBody extends StatelessWidget {
+  const PopUpItemBody({
+    Key? key,
+  }) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // const Divider(
+          //   color: Colors.white,
+          //   thickness: 0.2,
+          // ),
+          const TextField(
+            decoration: InputDecoration(
+              hintText: 'Bubble Sort is the simplest sorting algorithm that works by'
+                  ' repeatedly swapping the adjacent elements if they are in wrong order.',
+              border: InputBorder.none,
+            ),
+            cursorColor: Colors.white,
+            maxLines: 6,
+          ),
+          // const Divider(
+          //   color: Colors.white,
+          //   thickness: 0.2,
+          // ),
+        ],
+      ),
+    );
+  }
+}

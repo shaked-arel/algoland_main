@@ -1,8 +1,7 @@
-import 'BaseProvider.dart';
-import 'InsertionSortProv.dart';
-import 'SortProvider.dart';
-import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'InsertionSortProv.dart';
+import 'package:flutter/material.dart';
+
 
 class SortButton extends StatelessWidget {
   @override
