@@ -39,6 +39,7 @@ dependencies:
   # For example, to use Firebase Authentication and Cloud Firestore
   firebase_auth: ^3.1.0
   cloud_firestore: ^3.1.9
+  popup_card: ^0.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -50,6 +51,7 @@ dependencies:
   path_drawing: ^1.0.0
   flutter_auth_ui: ^2.4.2
   flutterfire_ui: ^0.3.5
+  percent_indicator: ^3.4.0
 
 
 dev_dependencies:
