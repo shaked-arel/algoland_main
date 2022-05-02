@@ -1,98 +1,87 @@
+// import 'package:flutter/material.dart';
+// import 'bubble_sort/BubbleSortProve.dart';
+// import 'package:provider/provider.dart';
+// import 'bubble_sort/SortPage.dart';
+//
+// void main() => runApp(MyApp());
+//
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Algorithms',
+//       debugShowCheckedModeBanner: false,
+//       // showPerformanceOverlay: true,
+//       home: Scaffold(
+//         body: MultiProvider(
+//           providers: [
+//             ChangeNotifierProvider(
+//               create: (_) => BubbleSortProvider(),
+//             ),
+//           ],
+//           child: SortPage(title: '',),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// import 'package:binarysearch/binary_search/BinarySearchProve.dart';
+// import 'package:flutter/material.dart';
+// import 'binary_search/SearchPage.dart';
+// import 'bubble_sort/BubbleSortProve.dart';
+// import 'package:provider/provider.dart';
+// import 'bubble_sort/SortPage.dart';
+//
+// void main() => runApp(MyApp());
+//
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Algorithms',
+//       debugShowCheckedModeBanner: false,
+//       // showPerformanceOverlay: true,
+//       home: Scaffold(
+//         body: MultiProvider(
+//           providers: [
+//             ChangeNotifierProvider(
+//               create: (_) => BinarySearchProvider(),
+//             ),
+//           ],
+//           child: SearchPage(title: '',),
+//         ),
+//       ),
+//     );
+//   }
+// }
 import 'package:flutter/material.dart';
-import 'package:full_game/level1/main.dart';
-import 'package:full_game/level2/main.dart';
-import 'package:full_game/level3/main.dart';
-import 'normalNumber.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import './auth.dart';
+import 'HomePage.dart';
 
-class Todo {
-  final String title;
-  final String description;
-
-  Todo({required this.title, required this.description});
-}
-
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    title: 'Levels passing',
-    home: TodoScreen(
-      levels: List.generate(
-        5,
-        (index) => Todo(
-            title: 'Level $index ',
-            description: "description for level $index"),
-      ),
-    ),
-  ));
-}
-
-class TodoScreen extends StatelessWidget {
-  final List<Todo> levels;
-
-  TodoScreen({required this.levels});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Levels"),
-      ),
-      body: ListView.builder(
-        itemCount: levels.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(levels[index].title),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LevelScreen(index: index),
-                ),
-              );
-            },
-          );
-        },
-      ),
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Firebase.apps.isEmpty) {
+    await Firebase.initializeApp(
+      name: 'check',
+      options: DefaultFirebaseOptions.currentPlatform,
     );
   }
+  runApp(MyApp());
 }
 
-class LevelScreen extends StatelessWidget {
-  final int index;
-
-  LevelScreen({required this.index});
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    switch (index) {
-      case 0:
-        return Level1Page();
-      case 1:
-        return Level2Page(
-          swap: true,
-        );
-      case 2:
-        return DragScreen();
-      default:
-        return Scaffold();
-    }
-  }
-}
-
-class DetailScreen extends StatelessWidget {
-  final Todo level;
-
-  DetailScreen({required this.level});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(level.title),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Text(level.description),
-      ),
-    );
+    return MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: HomePage());
   }
 }
