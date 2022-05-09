@@ -78,11 +78,7 @@ class _QuizState extends State<QuizApp> {
           ),
           body: _qIndex < _questions.length
               ? Quiz(handler: _answer, questions: _questions, index: _qIndex)
-              : Result(
-                  _totalScore,
-                  _resetQuiz,
-                  _questions.length,
-                )),
+              : Result(_totalScore, _resetQuiz, _questions.length, "temp")),
     );
   }
 }

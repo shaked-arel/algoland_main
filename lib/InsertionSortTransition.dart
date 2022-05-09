@@ -9,7 +9,7 @@ class InsertionSortTransition extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text(
-            'appBarTitle',
+            'Insertion Sort',
             style: TextStyle(
                 color: Colors.white, fontSize: 20, fontFamily: 'Calibri'),
           ),
@@ -40,8 +40,8 @@ class InsertionSortTransition extends StatelessWidget {
               popUp: PopUpItem(
                 padding: EdgeInsets.all(8),
                 color: Colors.white,
-                shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(32)),
                 elevation: 2,
                 tag: 'test',
                 child: PopUpItemBody(),
@@ -94,10 +94,11 @@ class InsertionSortTransition extends StatelessWidget {
                         fontSize: 20,
                         fontFamily: 'Calibri'),
                   ),
-                  onPressed: () {Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) => InsertionSortSimulation()));
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => InsertionSortSimulation()));
                   },
                 ),
               ),
@@ -147,15 +148,15 @@ class PopUpItemBody extends StatelessWidget {
           // ),
           const TextField(
               decoration: InputDecoration(
-                hintText: ' In an insertion sort, each element in the array is checked with the'
+                hintText:
+                    ' In an insertion sort, each element in the array is checked with the'
                     ' previous elements. '
                     'With each iteration, the sorting algorithm removes one element at a time and finds'
                     ' the appropriate location within the sorted array and inserts it there.',
                 border: InputBorder.none,
               ),
               cursorColor: Colors.white,
-              maxLines: 7
-          ),
+              maxLines: 7),
           // const Divider(
           //   color: Colors.white,
           //   thickness: 0.2,

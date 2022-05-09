@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import './quiz.dart';
 import './result.dart';
 
-void main(){
- runApp(quizBinarySearch());
+void main() {
+  runApp(quizBinarySearch());
 }
 
 class quizBinarySearch extends StatefulWidget {
@@ -43,8 +43,9 @@ class _QuizState extends State<quizBinarySearch> {
       ]
     },
     {
-      'question': 'Given the following array A=[2, 6, 7, 8, 40, 55, 160, 170, 177, 200], '
-          'After how many iterations will the algorithm return the value 7?',
+      'question':
+          'Given the following array A=[2, 6, 7, 8, 40, 55, 160, 170, 177, 200], '
+              'After how many iterations will the algorithm return the value 7?',
       'answers': [
         {'ans': '1', 'score': 0},
         {'ans': '2', 'score': 0},
@@ -96,11 +97,7 @@ class _QuizState extends State<quizBinarySearch> {
           ),
           body: _qIndex < _questions.length
               ? Quiz(handler: _answer, questions: _questions, index: _qIndex)
-              : Result(
-            _totalScore,
-            _resetQuiz,
-            _questions.length,
-          )),
+              : Result(_totalScore, _resetQuiz, _questions.length, "binary")),
     );
   }
 }
