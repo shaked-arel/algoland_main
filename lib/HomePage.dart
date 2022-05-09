@@ -1,7 +1,5 @@
-import 'package:binarysearch/Alg.dart';
 import 'package:binarysearch/BubbleSortTransition.dart';
 import 'package:flutter/material.dart';
-import 'Alg.dart';
 import './auth.dart';
 
 class HomePage extends StatelessWidget {
