@@ -24,8 +24,6 @@ class AuthGate extends StatelessWidget {
         }
 
         // Render your application if authenticated
-        print(context);
-        print(snapshot);
         return Algorithms();
       },
     );

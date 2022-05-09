@@ -102,10 +102,7 @@ class _QuizState extends State<quizInsertionSort> {
           body: _qIndex < _questions.length
               ? Quiz(handler: _answer, questions: _questions, index: _qIndex)
               : Result(
-                  _totalScore,
-                  _resetQuiz,
-                  _questions.length,
-                )),
+                  _totalScore, _resetQuiz, _questions.length, "insertion")),
     );
   }
 }

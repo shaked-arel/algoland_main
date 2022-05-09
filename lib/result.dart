@@ -1,11 +1,14 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;
   final int numOfQuestions;
   final VoidCallback reset;
+  final String name;
 
-  Result(this.resultScore, this.reset, this.numOfQuestions);
+  Result(this.resultScore, this.reset, this.numOfQuestions, this.name);
 
   String get resultPhrase {
     String resultText;
@@ -16,13 +19,25 @@ class Result extends StatelessWidget {
     // } else {
     //   resultText = 'try again...';
     // }
-    resultText = 'You were able to answer ' + resultScore.toString()
-        + '/' + numOfQuestions.toString() + ' correct answers';
-    if (resultScore < numOfQuestions){
+    resultText = 'You were able to answer ' +
+        resultScore.toString() +
+        '/' +
+        numOfQuestions.toString() +
+        ' correct answers';
+    if (resultScore < numOfQuestions) {
       resultText += "\r\n" "\r\n" 'Try again!';
     } else {
       resultText += "\r\n" "\r\n" 'Great job!';
     }
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final User user = auth.currentUser!;
+    final uid = user.uid;
+    FirebaseDatabase database = FirebaseDatabase.instance;
+    DatabaseReference myRef = FirebaseDatabase.instance.ref("progress/user");
+    var ref = myRef.child(uid);
+    ref.update({
+      name: (resultScore * 20),
+    });
     return resultText;
   }
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './quiz.dart';
 import './result.dart';
 
-void main(){
+void main() {
   runApp(quizBubbleSort());
 }
 
@@ -29,15 +29,16 @@ class _QuizState extends State<quizBubbleSort> {
     {
       'question': 'What is the best case time complexity of bubble sort?',
       'answers': [
-      {'ans': 'O(log(n))', 'score': 0},
-      {'ans': 'O(nlog(n))', 'score': 0},
-      {'ans': 'O(n)', 'score': 1},
-      {'ans': 'O(n^2)', 'score': 0},
+        {'ans': 'O(log(n))', 'score': 0},
+        {'ans': 'O(nlog(n))', 'score': 0},
+        {'ans': 'O(n)', 'score': 1},
+        {'ans': 'O(n^2)', 'score': 0},
       ]
     },
     {
-      'question': 'What will be the result of the run on the array A = [12, 4, 8, 2, 15, 13, 1]'
-          ' after one iteration?',
+      'question':
+          'What will be the result of the run on the array A = [12, 4, 8, 2, 15, 13, 1]'
+              ' after one iteration?',
       'answers': [
         {'ans': 'A=[4, 8, 2, 12, 15, 13, 1]', 'score': 0},
         {'ans': 'A=[4, 8, 2, 12, 13, 1, 15]', 'score': 1},
@@ -56,7 +57,8 @@ class _QuizState extends State<quizBubbleSort> {
       ]
     },
     {
-      'question': 'What is guaranteed at the end of the first iteration on the array?',
+      'question':
+          'What is guaranteed at the end of the first iteration on the array?',
       'answers': [
         {'ans': 'The first element in the array is the lowest', 'score': 0},
         {'ans': 'The last element in the array is the highest', 'score': 1},
@@ -97,11 +99,7 @@ class _QuizState extends State<quizBubbleSort> {
           ),
           body: _qIndex < _questions.length
               ? Quiz(handler: _answer, questions: _questions, index: _qIndex)
-              : Result(
-            _totalScore,
-            _resetQuiz,
-            _questions.length,
-          )),
+              : Result(_totalScore, _resetQuiz, _questions.length, "bubble")),
     );
   }
 }
