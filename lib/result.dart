@@ -1,3 +1,4 @@
+import 'package:binarysearch/global.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -38,6 +39,23 @@ class Result extends StatelessWidget {
     ref.update({
       name: (resultScore * 20),
     });
+    switch (name) {
+      case "bubble":
+        {
+          precentBubble = resultScore * 20;
+          break;
+        }
+      case "insertion":
+        {
+          precentInsertion = resultScore * 20;
+          break;
+        }
+      case "binary":
+        {
+          precentBinary = resultScore * 20;
+          break;
+        }
+    }
     return resultText;
   }
 

@@ -1,10 +1,65 @@
 import 'package:binarysearch/Algorithms.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
+import 'global.dart';
 
 class AuthGate extends StatelessWidget {
-  const AuthGate({Key? key}) : super(key: key);
+  AuthGate({Key? key}) : super(key: key);
+
+  final databaseRef = FirebaseDatabase.instance.ref("progress/user");
+
+  Future<int> getPer1() async {
+    try {
+      final snapshot = await databaseRef
+          .child(FirebaseAuth.instance.currentUser!.uid)
+          .child("bubble")
+          .get();
+      print(snapshot.value);
+      int num = int.parse(snapshot.value.toString());
+      assert(num is int);
+      return num;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  Future<int> getPer2() async {
+    try {
+      final snapshot = await databaseRef
+          .child(FirebaseAuth.instance.currentUser!.uid)
+          .child("insertion")
+          .get();
+      print(snapshot.value);
+      int num = int.parse(snapshot.value.toString());
+      assert(num is int);
+      return num;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  Future<int> getPer3() async {
+    try {
+      final snapshot = await databaseRef
+          .child(FirebaseAuth.instance.currentUser!.uid)
+          .child("binary")
+          .get();
+      print(snapshot.value);
+      int num = int.parse(snapshot.value.toString());
+      assert(num is int);
+      return num;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  void get() async {
+    precentBubble = await getPer1();
+    precentInsertion = await getPer2();
+    precentBinary = await getPer3();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +75,8 @@ class AuthGate extends StatelessWidget {
               EmailProviderConfiguration(),
             ],
           );
+        } else {
+          get();
         }
 
         // Render your application if authenticated

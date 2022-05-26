@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:popup_card/popup_card.dart';
 import 'BubbleSortSimulation.dart';
 import 'Algorithms.dart';
+import 'BubbleSortGame.dart';
 
 class BubbleSortTransition extends StatelessWidget {
   @override
@@ -124,7 +125,20 @@ class BubbleSortTransition extends StatelessWidget {
                         fontSize: 20,
                         fontFamily: 'Calibri'),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => TodoScreen(
+                                  levels: List.generate(
+                                    10,
+                                    (index) => Todo(
+                                        title: 'Level ${index + 1} ',
+                                        description:
+                                            "description for level $index"),
+                                  ),
+                                )));
+                  },
                 ),
               ),
             ),

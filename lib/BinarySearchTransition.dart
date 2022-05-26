@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:popup_card/popup_card.dart';
 import 'BinarySearchSimulation.dart';
-import 'StartGame.dart';
+import 'BubbleSortGame.dart'; // need to change when binary sort game will be ready
 
 class BinarySearchTransition extends StatelessWidget {
   @override

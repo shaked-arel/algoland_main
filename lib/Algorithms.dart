@@ -1,4 +1,5 @@
 import 'package:binarysearch/BinarySearchTransition.dart';
+import 'package:binarysearch/global.dart';
 import 'package:binarysearch/wait.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,67 +9,11 @@ import 'BubbleSortTransition.dart';
 import 'InsertionSortTransition.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'global.dart';
 
 class Algorithms extends StatelessWidget {
-  final databaseRef = FirebaseDatabase.instance.ref("progress/user");
-  static int percent1 = 0;
-  static int percent2 = 0;
-  static int percent3 = 0;
-
-  Future<int> getPer1() async {
-    try {
-      final snapshot = await databaseRef
-          .child(FirebaseAuth.instance.currentUser!.uid)
-          .child("bubble")
-          .get();
-      print(snapshot.value);
-      int num = int.parse(snapshot.value.toString());
-      assert(num is int);
-      return num;
-    } catch (err) {
-      rethrow;
-    }
-  }
-
-  Future<int> getPer2() async {
-    try {
-      final snapshot = await databaseRef
-          .child(FirebaseAuth.instance.currentUser!.uid)
-          .child("insertion")
-          .get();
-      print(snapshot.value);
-      int num = int.parse(snapshot.value.toString());
-      assert(num is int);
-      return num;
-    } catch (err) {
-      rethrow;
-    }
-  }
-
-  Future<int> getPer3() async {
-    try {
-      final snapshot = await databaseRef
-          .child(FirebaseAuth.instance.currentUser!.uid)
-          .child("binary")
-          .get();
-      print(snapshot.value);
-      int num = int.parse(snapshot.value.toString());
-      assert(num is int);
-      return num;
-    } catch (err) {
-      rethrow;
-    }
-  }
-
-  void get() async {
-    percent1 = await getPer1();
-    percent2 = await getPer2();
-    percent3 = await getPer3();
-  }
-
   @override
   Widget build(BuildContext context) {
-    get();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -101,7 +46,7 @@ class Algorithms extends StatelessWidget {
                             height: 150,
                             child: CircularPercentIndicator(
                               radius: 150,
-                              percent: percent1 / 100,
+                              percent: precentBubble / 100,
                               animation: true,
                               lineWidth: 10,
                               circularStrokeCap: CircularStrokeCap.round,
@@ -125,7 +70,6 @@ class Algorithms extends StatelessWidget {
                                       fontFamily: 'Calibri'),
                                 ),
                                 onPressed: () {
-                                  get();
                                   Navigator.push(
                                       context,
                                       new MaterialPageRoute(
@@ -151,7 +95,7 @@ class Algorithms extends StatelessWidget {
                             height: 150,
                             child: CircularPercentIndicator(
                               radius: 150,
-                              percent: percent2 / 100,
+                              percent: precentInsertion / 100,
                               animation: true,
                               lineWidth: 10,
                               circularStrokeCap: CircularStrokeCap.round,
@@ -175,7 +119,6 @@ class Algorithms extends StatelessWidget {
                                       fontFamily: 'Calibri'),
                                 ),
                                 onPressed: () {
-                                  get();
                                   Navigator.push(
                                       context,
                                       new MaterialPageRoute(
@@ -201,7 +144,7 @@ class Algorithms extends StatelessWidget {
                             //height: 160,
                             child: CircularPercentIndicator(
                               radius: 150,
-                              percent: percent3 / 100,
+                              percent: precentBinary / 100,
                               animation: true,
                               lineWidth: 10,
                               circularStrokeCap: CircularStrokeCap.round,
@@ -225,7 +168,6 @@ class Algorithms extends StatelessWidget {
                                       fontFamily: 'Calibri'),
                                 ),
                                 onPressed: () {
-                                  get();
                                   Navigator.push(
                                       context,
                                       new MaterialPageRoute(
