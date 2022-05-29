@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import './quiz.dart';
 import './result.dart';
+import 'Back.dart';
 
-void main() {
-  runApp(quizBinarySearch());
-}
+// void main() {
+//   runApp(quizBinarySearch());
+// }
 
 class quizBinarySearch extends StatefulWidget {
   @override
@@ -94,10 +95,15 @@ class _QuizState extends State<quizBinarySearch> {
       home: Scaffold(
           appBar: AppBar(
             title: Text("Let's see how much you learned"),
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           ),
           body: _qIndex < _questions.length
               ? Quiz(handler: _answer, questions: _questions, index: _qIndex)
-              : Result(_totalScore, _resetQuiz, _questions.length, "binary")),
-    );
+              : Result(_totalScore, _resetQuiz, _questions.length, "binary"),),);
   }
 }

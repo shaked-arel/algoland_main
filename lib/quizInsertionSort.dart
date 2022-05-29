@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import './quiz.dart';
 import './result.dart';
 
-void main() {
-  runApp(quizInsertionSort());
-}
+// void main() {
+//   runApp(quizInsertionSort());
+// }
 
 class quizInsertionSort extends StatefulWidget {
   @override
@@ -98,6 +98,12 @@ class _QuizState extends State<quizInsertionSort> {
       home: Scaffold(
           appBar: AppBar(
             title: Text("Let's see how much you learned"),
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           ),
           body: _qIndex < _questions.length
               ? Quiz(handler: _answer, questions: _questions, index: _qIndex)
