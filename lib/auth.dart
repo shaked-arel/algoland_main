@@ -1,4 +1,5 @@
 import 'package:binarysearch/Algorithms.dart';
+import 'package:binarysearch/wait.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -55,10 +56,58 @@ class AuthGate extends StatelessWidget {
     }
   }
 
+  Future<int> getLev1() async {
+    try {
+      final snapshot = await databaseRef
+          .child(FirebaseAuth.instance.currentUser!.uid)
+          .child("levelsBubble")
+          .get();
+      print(snapshot.value);
+      int num = int.parse(snapshot.value.toString());
+      assert(num is int);
+      return num;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  Future<int> getLev2() async {
+    try {
+      final snapshot = await databaseRef
+          .child(FirebaseAuth.instance.currentUser!.uid)
+          .child("levelsInsertion")
+          .get();
+      print(snapshot.value);
+      int num = int.parse(snapshot.value.toString());
+      assert(num is int);
+      return num;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  Future<int> getLev3() async {
+    try {
+      final snapshot = await databaseRef
+          .child(FirebaseAuth.instance.currentUser!.uid)
+          .child("levelsBinary")
+          .get();
+      print(snapshot.value);
+      int num = int.parse(snapshot.value.toString());
+      assert(num is int);
+      return num;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
   void get() async {
     precentBubble = await getPer1();
     precentInsertion = await getPer2();
     precentBinary = await getPer3();
+    levelBubble = await getLev1();
+    levelInsertion = await getLev2();
+    levelBinary = await getLev3();
   }
 
   @override
@@ -78,9 +127,7 @@ class AuthGate extends StatelessWidget {
         } else {
           get();
         }
-
         // Render your application if authenticated
-
         return Algorithms();
       },
     );

@@ -52,6 +52,8 @@ class _Level1PageState extends State<Level1Page> with TickerProviderStateMixin {
                   setState(() {
                     isVisibleGood = !isVisibleGood;
                     isVisible = !isVisible;
+                  });
+                  setState(() {
                     final FirebaseAuth auth = FirebaseAuth.instance;
                     final User user = auth.currentUser!;
                     final uid = user.uid;
@@ -73,6 +75,9 @@ class _Level1PageState extends State<Level1Page> with TickerProviderStateMixin {
                 onPressed: () {
                   setState(() {
                     isVisibleBad = !isVisibleBad;
+                    Future.delayed(const Duration(milliseconds: 250), () {
+                      isVisibleBad = !isVisibleBad;
+                    });
                   });
                 },
                 child: Text('Right')),
@@ -83,7 +88,7 @@ class _Level1PageState extends State<Level1Page> with TickerProviderStateMixin {
             child: Lottie.network(
                 'https://assets10.lottiefiles.com/packages/lf20_oaw8d1yt.json',
                 height: 200,
-                repeat: false)),
+                repeat: true)),
         Visibility(
             visible: isVisibleBad,
             child: Lottie.network(

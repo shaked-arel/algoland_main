@@ -157,7 +157,7 @@ class _DragScreen2State extends State<DragScreen2>
                   'https://assets3.lottiefiles.com/packages/lf20_wys2rrr6.json',
                   controller: _controller,
                   height: 200,
-                  repeat: false),
+                  repeat: true),
             ),
             DraggableNumbers(),
             Visibility(

@@ -83,6 +83,11 @@ class Algorithms extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30))),
                           onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (context) => Algorithms()));
                             Navigator.push(
                                 context,
                                 new MaterialPageRoute(
@@ -141,6 +146,11 @@ class Algorithms extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30))),
                           onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (context) => Algorithms()));
                             Navigator.push(
                                 context,
                                 new MaterialPageRoute(
@@ -199,6 +209,11 @@ class Algorithms extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30))),
                           onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (context) => Algorithms()));
                             Navigator.push(
                                 context,
                                 new MaterialPageRoute(

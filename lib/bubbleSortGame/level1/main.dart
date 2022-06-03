@@ -10,7 +10,6 @@ import '../../sortedNumber.dart';
 import 'dart:math';
 import 'package:binarysearch/global.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Level1Page extends StatefulWidget {
@@ -102,7 +101,7 @@ class _Level1State extends State<Level1Page> with TickerProviderStateMixin {
                 'https://assets3.lottiefiles.com/packages/lf20_wys2rrr6.json',
                 //  controller: _controller,
                 height: 200,
-                repeat: false),
+                repeat: true),
           ),
           Visibility(
             visible: isVisibleBad,
@@ -118,6 +117,8 @@ class _Level1State extends State<Level1Page> with TickerProviderStateMixin {
                   setState(() {
                     isVisibleGood = !isVisibleGood;
                     isVisible = !isVisible;
+                  });
+                  setState(() {
                     final FirebaseAuth auth = FirebaseAuth.instance;
                     final User user = auth.currentUser!;
                     final uid = user.uid;
@@ -133,11 +134,13 @@ class _Level1State extends State<Level1Page> with TickerProviderStateMixin {
                 } else {
                   setState(() {
                     isVisibleBad = !isVisibleBad;
-                    //await Future.delayed(Duration(seconds: 2));
+                    Future.delayed(const Duration(milliseconds: 250), () {
+                      isVisibleBad = !isVisibleBad;
+                    });
                   });
                 }
               },
-              child: Text('Submit')),
+              child: Text('Check')),
           Visibility(
             visible: isVisible,
             maintainSize: true,

@@ -165,7 +165,7 @@ class _Level2bPageState extends State<Level2bPage> {
             child: Lottie.network(
                 'https://assets10.lottiefiles.com/packages/lf20_oaw8d1yt.json',
                 height: 200,
-                repeat: false)),
+                repeat: true)),
         Visibility(
             visible: isVisibleBad,
             child: Lottie.network(
@@ -182,6 +182,8 @@ class _Level2bPageState extends State<Level2bPage> {
                 setState(() {
                   isVisibleGood = !isVisibleGood;
                   isVisible = !isVisible;
+                });
+                setState(() {
                   final FirebaseAuth auth = FirebaseAuth.instance;
                   final User user = auth.currentUser!;
                   final uid = user.uid;
@@ -197,10 +199,13 @@ class _Level2bPageState extends State<Level2bPage> {
               } else {
                 setState(() {
                   isVisibleBad = !isVisibleBad;
+                  Future.delayed(const Duration(milliseconds: 250), () {
+                    isVisibleBad = !isVisibleBad;
+                  });
                 });
               }
             },
-            child: Text('Submit')),
+            child: Text('Check')),
         Visibility(
             visible: isVisible,
             child: ElevatedButton(

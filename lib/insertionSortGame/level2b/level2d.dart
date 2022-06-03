@@ -214,7 +214,7 @@ class _Level2dState extends State<Level2dPage> with TickerProviderStateMixin {
                 'https://assets2.lottiefiles.com/packages/lf20_2frpohrv.json',
                 //  controller: _WrongController,
                 height: 200,
-                repeat: false),
+                repeat: true),
           ),
           ElevatedButton(
               onPressed: () {
@@ -226,6 +226,8 @@ class _Level2dState extends State<Level2dPage> with TickerProviderStateMixin {
                   setState(() {
                     isVisibleGood = !isVisibleGood;
                     isVisible = !isVisible;
+                  });
+                  setState(() {
                     final FirebaseAuth auth = FirebaseAuth.instance;
                     final User user = auth.currentUser!;
                     final uid = user.uid;
@@ -241,10 +243,13 @@ class _Level2dState extends State<Level2dPage> with TickerProviderStateMixin {
                 } else {
                   setState(() {
                     isVisibleBad = !isVisibleBad;
+                    Future.delayed(const Duration(milliseconds: 250), () {
+                      isVisibleBad = !isVisibleBad;
+                    });
                   });
                 }
               },
-              child: Text('Submit')),
+              child: Text('Check')),
           Visibility(
             visible: isVisible,
             maintainSize: true,

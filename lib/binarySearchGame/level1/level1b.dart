@@ -49,6 +49,9 @@ class _Level1bPageState extends State<Level1bPage>
                 onPressed: () {
                   setState(() {
                     isVisibleBad = !isVisibleBad;
+                    Future.delayed(const Duration(milliseconds: 250), () {
+                      isVisibleBad = !isVisibleBad;
+                    });
                   });
                 },
                 child: Text('Left')),
@@ -60,6 +63,8 @@ class _Level1bPageState extends State<Level1bPage>
                   setState(() {
                     isVisibleGood = !isVisibleGood;
                     isVisible = !isVisible;
+                  });
+                  setState(() {
                     final FirebaseAuth auth = FirebaseAuth.instance;
                     final User user = auth.currentUser!;
                     final uid = user.uid;
@@ -81,7 +86,7 @@ class _Level1bPageState extends State<Level1bPage>
             child: Lottie.network(
                 'https://assets10.lottiefiles.com/packages/lf20_oaw8d1yt.json',
                 height: 200,
-                repeat: false)),
+                repeat: true)),
         Visibility(
             visible: isVisibleBad,
             child: Lottie.network(

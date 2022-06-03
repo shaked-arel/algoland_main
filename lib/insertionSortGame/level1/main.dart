@@ -133,11 +133,13 @@ class _Level1State extends State<Level1Page> with TickerProviderStateMixin {
                 } else {
                   setState(() {
                     isVisibleBad = !isVisibleBad;
-                    //await Future.delayed(Duration(seconds: 2));
+                    Future.delayed(const Duration(milliseconds: 250), () {
+                      isVisibleBad = !isVisibleBad;
+                    });
                   });
                 }
               },
-              child: Text('Submit')),
+              child: Text('Check')),
           Visibility(
             visible: isVisible,
             maintainSize: true,
