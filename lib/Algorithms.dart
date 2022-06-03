@@ -118,12 +118,12 @@ class Algorithms extends StatelessWidget {
                         alignment: Alignment.center,
                         child: CircularPercentIndicator(
                           radius: 200,
-                          percent: precentBubble / 100,
+                          percent: precentInsertion / 100,
                           animation: true,
                           lineWidth: 30,
                           backgroundColor: Palette.lightgray,
                           progressColor: Colors.orange,
-                          center: new Text(precentBubble.toString() + '%',
+                          center: new Text(precentInsertion.toString() + '%',
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 45.0,
@@ -176,12 +176,12 @@ class Algorithms extends StatelessWidget {
                         alignment: Alignment.center,
                         child: CircularPercentIndicator(
                           radius: 200,
-                          percent: precentBubble / 100,
+                          percent: precentBinary / 100,
                           animation: true,
                           lineWidth: 30,
                           backgroundColor: Palette.lightgray,
                           progressColor: Palette.lightBlue2,
-                          center: new Text(precentBubble.toString() + '%',
+                          center: new Text(precentBinary.toString() + '%',
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 45.0,
