@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Question extends StatelessWidget {
   final String qeustionText;
@@ -12,7 +13,7 @@ class Question extends StatelessWidget {
       margin: EdgeInsets.all(20),
       child: Text(
         qeustionText,
-        style: TextStyle(fontSize: 28),
+        style: GoogleFonts.robotoFlex(fontWeight: FontWeight.bold, fontSize: 20),
         textAlign: TextAlign.center,
       ),
     );

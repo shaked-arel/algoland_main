@@ -2,6 +2,7 @@ import 'package:binarysearch/config/palette.dart';
 import 'package:binarysearch/quizBinarySearch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:popup_card/popup_card.dart';
 import 'BinarySearchSimulation.dart';
 import 'BinarySortGame.dart';
@@ -13,13 +14,14 @@ class BinarySearchTransition extends StatelessWidget {
           backgroundColor: Colors.white12,
           elevation: 0,
           title: Text(
-            'What would you like to do?',
-            style: TextStyle(
-                color: Palette.darkBlue2, fontSize: 20, fontFamily: 'Calibri'),
+            'Algolnd',
+            style: GoogleFonts.robotoFlex(
+                color: Palette.darkBlue2, fontSize: 20, fontWeight: FontWeight.bold),
           ),
+          centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios),
-            color: Colors.blueAccent,
+            color: Palette.darkBlue2,
             onPressed: () {
               Navigator.pop(context);
             },

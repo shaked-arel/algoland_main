@@ -1,6 +1,7 @@
+import 'package:binarysearch/config/palette.dart';
 import 'package:binarysearch/global.dart';
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'BinarySearchGame/level1.dart';
 import 'BinarySearchGame/level1/level1b.dart';
 import 'BinarySearchGame/level1/level1c.dart';
@@ -40,14 +41,39 @@ class TodoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Levels"),
+    return MaterialApp(
+        theme: ThemeData(primaryColor: Colors.black),
+        debugShowCheckedModeBanner: false,
+    home: Scaffold(
+        appBar: AppBar(
+            backgroundColor: Colors.white12,
+            elevation: 0,
+            title: Text("Levels",
+              style: GoogleFonts.robotoFlex(color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
+            centerTitle: true,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back_ios),
+              color: Palette.darkBlue2,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
+    body:
+    Container(
+      constraints: BoxConstraints.expand(),
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+      image: DecorationImage(
+        image:  AssetImage('assets/levels.png'),
+        fit: BoxFit.cover,
       ),
-      body: ListView.builder(
+    ),
+    child: ListView.builder(
         itemCount: levels.length,
         itemBuilder: (context, index) {
-          return ListTile(
+          return
+            ListTile(
             title: Text(levels[index].title),
             tileColor: index < levelBinary ? pass : notPass,
             onTap: () {
@@ -60,8 +86,40 @@ class TodoScreen extends StatelessWidget {
             },
           );
         },
-      ),
-    );
+      ),)));
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     backgroundColor: Colors.white12,
+    //     elevation: 0,
+    //     title: Text("Levels",
+    //       style: GoogleFonts.robotoFlex(color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
+    //     centerTitle: true,
+    //     leading: IconButton(
+    //       icon: Icon(Icons.arrow_back_ios),
+    //       color: Palette.darkBlue2,
+    //       onPressed: () {
+    //         Navigator.pop(context);
+    //       },
+    //     ),
+    //   ),
+    //   body: ListView.builder(
+    //     itemCount: levels.length,
+    //     itemBuilder: (context, index) {
+    //       return ListTile(
+    //         title: Text(levels[index].title),
+    //         tileColor: index < levelBinary ? pass : notPass,
+    //         onTap: () {
+    //           Navigator.push(
+    //             context,
+    //             MaterialPageRoute(
+    //               builder: (context) => LevelScreen(index: index),
+    //             ),
+    //           );
+    //         },
+    //       );
+    //     },
+    //   ),
+    // );
   }
 }
 
@@ -91,6 +149,17 @@ class LevelScreen extends StatelessWidget {
     }
   }
 }
+
+
+// child: IconTheme(
+// data: new IconThemeData(
+// color: Colors.blue,
+// ),
+// //child: new Icon(Icons.arrow_forward),
+// child: Text('1', style: TextStyle(color: Colors.blue)),
+// ),
+// backgroundColor: Colors.white,
+// ),
 
 class DetailScreen extends StatelessWidget {
   final Todo level;

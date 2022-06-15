@@ -1,11 +1,8 @@
+import 'package:binarysearch/config/palette.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import './quiz.dart';
 import './result.dart';
-import 'Back.dart';
-
-// void main() {
-//   runApp(quizBinarySearch());
-// }
 
 class quizBinarySearch extends StatefulWidget {
   @override
@@ -45,8 +42,8 @@ class _QuizState extends State<quizBinarySearch> {
     },
     {
       'question':
-          'Given the following array A=[2, 6, 7, 8, 40, 55, 160, 170, 177, 200], '
-              'After how many iterations will the algorithm return the value 7?',
+          'A=[2, 6, 7, 8, 40, 55, 160, 170, 177, 200],'
+              ' After how many iterations will the algorithm return the value 7?',
       'answers': [
         {'ans': '1', 'score': 0},
         {'ans': '2', 'score': 0},
@@ -56,9 +53,8 @@ class _QuizState extends State<quizBinarySearch> {
     },
     {
       'question': 'A=[15, 18, 20, 21, 26, 31, 36, 38], '
-          ' B=[20, 21, 26, 31, 36, 38, 40]'
-          ' For each of the arrays, '
-          'what will be the number from which we will start the search?',
+          ' B=[20, 21, 26, 31, 36, 38, 40]' + '\r\n'
+          'What will be the number from which we will start the search?',
       'answers': [
         {'ans': 'A: 21, B: 26', 'score': 0},
         {'ans': 'A: 26, B: 36', 'score': 0},
@@ -69,15 +65,18 @@ class _QuizState extends State<quizBinarySearch> {
   ];
   var _qIndex = 0;
   var _totalScore = 0;
+  var _curscore = -1;
 
   void _resetQuiz() {
     setState(() {
       _qIndex = 0;
       _totalScore = 0;
+      _curscore = -1;
     });
   }
 
   void _answer(int score) {
+    _curscore = score;
     _totalScore += score;
     setState(() {
       _qIndex += 1;
@@ -94,16 +93,19 @@ class _QuizState extends State<quizBinarySearch> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
-            title: Text("Let's see how much you learned"),
+            title: Text("Quiz", style: GoogleFonts.robotoFlex(fontWeight: FontWeight.bold)),
+            centerTitle: true,
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
+            backgroundColor: Colors.white, // appbar color.
+            foregroundColor: Palette.darkBlue2, // appbar text color.
           ),
           body: _qIndex < _questions.length
-              ? Quiz(handler: _answer, questions: _questions, index: _qIndex)
+              ? Quiz(handler: _answer, questions: _questions, index: _qIndex, score: _curscore)
               : Result(_totalScore, _resetQuiz, _questions.length, "binary"),),);
   }
 }

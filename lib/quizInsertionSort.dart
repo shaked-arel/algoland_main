@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import './quiz.dart';
 import './result.dart';
-
-// void main() {
-//   runApp(quizInsertionSort());
-// }
+import 'config/palette.dart';
 
 class quizInsertionSort extends StatefulWidget {
   @override
@@ -39,7 +37,7 @@ class _QuizState extends State<quizInsertionSort> {
     },
     {
       'question':
-          'What will be the result of the run on the array A = [34, 8, 64, 51, 32, 21],'
+          'What will be the result of the run on the array A = [34, 8, 64, 51, 32, 21],' + '\r\n'
               ' after two iterations?',
       'answers': [
         {'ans': 'A=[8, 21, 32, 34, 51, 64]', 'score': 0},
@@ -49,8 +47,8 @@ class _QuizState extends State<quizInsertionSort> {
       ]
     },
     {
-      'question': 'How many transition the algorithm will make on the array'
-          ' A = [14, 12, 16, 6, 3, 10]?',
+      'question': 'How many transition the algorithm will make on the array' + '\r\n'
+          ' A = [14, 12, 16, 6, 3, 10] ?',
       'answers': [
         {'ans': '7', 'score': 0},
         {'ans': '6', 'score': 0},
@@ -72,15 +70,18 @@ class _QuizState extends State<quizInsertionSort> {
 
   var _qIndex = 0;
   var _totalScore = 0;
+  var _curscore = -1;
 
   void _resetQuiz() {
     setState(() {
       _qIndex = 0;
       _totalScore = 0;
+      _curscore = -1;
     });
   }
 
   void _answer(int score) {
+    _curscore = score;
     _totalScore += score;
     setState(() {
       _qIndex += 1;
@@ -97,16 +98,19 @@ class _QuizState extends State<quizInsertionSort> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
-            title: Text("Let's see how much you learned"),
+            title: Text("Quiz", style: GoogleFonts.robotoFlex(fontWeight: FontWeight.bold)),
+            centerTitle: true,
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
+            backgroundColor: Colors.white, // appbar color.
+            foregroundColor: Palette.darkBlue2, // appbar text color.
           ),
           body: _qIndex < _questions.length
-              ? Quiz(handler: _answer, questions: _questions, index: _qIndex)
+              ? Quiz(handler: _answer, questions: _questions, index: _qIndex, score: _curscore,)
               : Result(
                   _totalScore, _resetQuiz, _questions.length, "insertion")),
     );

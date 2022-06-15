@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:binarysearch/config/palette.dart';
 import 'package:binarysearch/wait.dart';
 import 'package:flutter/material.dart';
 
@@ -15,19 +16,22 @@ class Answer extends StatefulWidget {
 
 class ColorChange extends State<Answer> {
   ColorChange();
-  Color col = Colors.blue;
+  Color col = Palette.yellow;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: 300,
       child: RaisedButton(
         color: col,
         textColor: Colors.white,
-        child: Text(widget.answerText),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18.0),
+        ),
+        child: Text(widget.answerText, style: TextStyle(fontSize: 16),),
         onPressed: () {
           setState(() => col = widget.color);
           Future.delayed(const Duration(milliseconds: 250), () {
-            col = Colors.blue;
+            col = Palette.yellow;
             widget.handler();
           });
         },
