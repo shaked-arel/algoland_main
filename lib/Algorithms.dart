@@ -3,6 +3,7 @@ import 'package:binarysearch/config/palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'BubbleSortTransition.dart';
 import 'InsertionSortTransition.dart';
@@ -12,14 +13,10 @@ class Algorithms extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white12,
           elevation: 0,
-          title: Text(
-            'Algoland',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Palette.lightBlue2, fontSize: 20, fontFamily: 'Calibri'),
-          ),
+          title: Text('Algoland', style: GoogleFonts.robotoFlex(
+                color: Palette.lightBlue2, fontWeight: FontWeight.bold)),
+          centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios),
             color: Palette.lightBlue2,
@@ -27,6 +24,8 @@ class Algorithms extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
+          backgroundColor: Colors.white, // appbar color.
+          foregroundColor: Palette.darkBlue2, // appbar text color.
         ),
         body: ListView(
           children: <Widget>[
@@ -34,8 +33,6 @@ class Algorithms extends StatelessWidget {
               shrinkWrap: true,
               primary: false,
               padding: const EdgeInsets.all(0),
-              //crossAxisSpacing: 2,
-              //mainAxisSpacing: 2,
               crossAxisCount: 1,
               children: <Widget>[
                 Container(
@@ -48,7 +45,7 @@ class Algorithms extends StatelessWidget {
                         child: Text(
                           'Bubble sort',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: GoogleFonts.robotoFlex(
                               fontWeight: FontWeight.bold, fontSize: 22),
                         ),
                       ),
@@ -66,7 +63,7 @@ class Algorithms extends StatelessWidget {
                           backgroundColor: Palette.lightgray,
                           progressColor: Palette.yellow,
                           center: new Text(precentBubble.toString() + '%',
-                              style: new TextStyle(
+                              style: GoogleFonts.robotoFlex(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 45.0,
                                   color: Palette.yellow)),
@@ -78,7 +75,7 @@ class Algorithms extends StatelessWidget {
                           style: TextButton.styleFrom(
                               padding: const EdgeInsets.all(18.0),
                               primary: Colors.white,
-                              textStyle: const TextStyle(fontSize: 20),
+                              textStyle: GoogleFonts.robotoFlex(fontSize: 20),
                               backgroundColor: Palette.yellow,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30))),
@@ -94,9 +91,9 @@ class Algorithms extends StatelessWidget {
                                     builder: (context) =>
                                         BubbleSortTransition()));
                           },
-                          child: const Text(
+                          child: Text(
                             "Let's practice",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: GoogleFonts.robotoFlex(),
                           ),
                         ),
                       ),
@@ -112,7 +109,7 @@ class Algorithms extends StatelessWidget {
                         alignment: Alignment(0, -0.9),
                         child: Text('Insertion sort',
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: GoogleFonts.robotoFlex(
                                 fontWeight: FontWeight.bold, fontSize: 22)),
                       ),
                       Align(
@@ -129,7 +126,7 @@ class Algorithms extends StatelessWidget {
                           backgroundColor: Palette.lightgray,
                           progressColor: Colors.orange,
                           center: new Text(precentInsertion.toString() + '%',
-                              style: new TextStyle(
+                              style: GoogleFonts.robotoFlex(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 45.0,
                                   color: Colors.orange)),
@@ -141,7 +138,7 @@ class Algorithms extends StatelessWidget {
                           style: TextButton.styleFrom(
                               padding: const EdgeInsets.all(18.0),
                               primary: Colors.white,
-                              textStyle: const TextStyle(fontSize: 20),
+                              textStyle: GoogleFonts.robotoFlex(fontSize: 20),
                               backgroundColor: Colors.orange,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30))),
@@ -157,9 +154,9 @@ class Algorithms extends StatelessWidget {
                                     builder: (context) =>
                                         InsertionSortTransition()));
                           },
-                          child: const Text(
+                          child: Text(
                             "Let's practice",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: GoogleFonts.robotoFlex(),
                           ),
                         ),
                       ),
@@ -175,7 +172,7 @@ class Algorithms extends StatelessWidget {
                         alignment: Alignment(0, -0.9),
                         child: Text('Binary search',
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: GoogleFonts.robotoFlex(
                                 fontWeight: FontWeight.bold, fontSize: 22)),
                       ),
                       Align(
@@ -192,7 +189,7 @@ class Algorithms extends StatelessWidget {
                           backgroundColor: Palette.lightgray,
                           progressColor: Palette.lightBlue2,
                           center: new Text(precentBinary.toString() + '%',
-                              style: new TextStyle(
+                              style: GoogleFonts.robotoFlex(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 45.0,
                                   color: Palette.lightBlue2)),
@@ -204,7 +201,7 @@ class Algorithms extends StatelessWidget {
                           style: TextButton.styleFrom(
                               padding: const EdgeInsets.all(18.0),
                               primary: Colors.white,
-                              textStyle: const TextStyle(fontSize: 20),
+                              textStyle: GoogleFonts.robotoFlex(fontSize: 20),
                               backgroundColor: Palette.lightBlue2,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30))),
@@ -220,9 +217,9 @@ class Algorithms extends StatelessWidget {
                                     builder: (context) =>
                                         BinarySearchTransition()));
                           },
-                          child: const Text(
+                          child: Text(
                             "Let's practice",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: GoogleFonts.robotoFlex(),
                           ),
                         ),
                       ),
