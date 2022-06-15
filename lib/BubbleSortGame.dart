@@ -46,7 +46,13 @@ class TodoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Levels"),
-      ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          color: Colors.white,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),),
       body: ListView.builder(
         itemCount: levels.length,
         itemBuilder: (context, index) {
