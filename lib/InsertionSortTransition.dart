@@ -3,7 +3,7 @@ import 'package:binarysearch/quizInsertionSort.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:popup_card/popup_card.dart';
-import 'BubbleSortGame.dart';
+import 'InsertionSortGame.dart';
 import 'InsertionSortSimulation.dart';
 
 class InsertionSortTransition extends StatelessWidget {

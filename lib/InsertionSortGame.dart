@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'config/palette.dart';
 import 'insertionSortGame/level1/main.dart';
 import 'insertionSortGame/level1b/level1e.dart';
 import 'insertionSortGame/level2/main.dart';
@@ -44,35 +46,361 @@ class TodoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Levels"),
-      ),
-      body: ListView.builder(
-        itemCount: levels.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(levels[index].title),
-            tileColor: index < levelInsertion ? pass : notPass,
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LevelScreen(index: index),
+    return MaterialApp(
+        theme: ThemeData(primaryColor: Colors.black),
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.white12,
+              elevation: 0,
+              title: Text("Levels",
+                  style: GoogleFonts.robotoFlex(
+                      color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
+              centerTitle: true,
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                color: Palette.darkBlue2,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            body: Container(
+                constraints: BoxConstraints.expand(),
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  image: DecorationImage(
+                    image: AssetImage('assets/levels.png'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              );
-            },
-          );
-        },
-      ),
-    );
+                child: Stack(
+                  // This next line does the trick.
+                  //scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment(-0.6, -0.8),
+                      child: SizedBox(
+                        width: 75.0,
+                        height: 75.0,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 0),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                            data: new IconThemeData(),
+                            child: Text('1',
+                                style: GoogleFonts.robotoFlex(
+                                    color: Palette.darkBlue2,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30)),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0, -0.8),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 1),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                            data: new IconThemeData(),
+                            child: Text('2',
+                                style: GoogleFonts.robotoFlex(
+                                    color: Palette.darkBlue2,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30)),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.6, -0.8),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 2),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                            data: new IconThemeData(),
+                            child: Text('3',
+                                style: GoogleFonts.robotoFlex(
+                                    color: Palette.darkBlue2,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30)),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(-0.6, -0.48),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 3),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                            data: new IconThemeData(),
+                            child: Text('4',
+                                style: GoogleFonts.robotoFlex(
+                                    color: Palette.darkBlue2,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30)),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0, -0.48),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 4),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                            data: new IconThemeData(),
+                            child: Text('5',
+                                style: GoogleFonts.robotoFlex(
+                                    color: Palette.darkBlue2,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30)),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.6, -0.48),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 5),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                            data: new IconThemeData(),
+                            child: Text('6',
+                                style: GoogleFonts.robotoFlex(
+                                    color: Palette.darkBlue2,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30)),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(-0.6, -0.16),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 6),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                            data: new IconThemeData(),
+                            child: Text('7',
+                                style: GoogleFonts.robotoFlex(
+                                    color: Palette.darkBlue2,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30)),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0, -0.16),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 7),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                            data: new IconThemeData(),
+                            child: Text('8',
+                                style: GoogleFonts.robotoFlex(
+                                    color: Palette.darkBlue2,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30)),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.6, -0.16),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 8),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                            data: new IconThemeData(),
+                            child: Text('9',
+                                style: GoogleFonts.robotoFlex(
+                                    color: Palette.darkBlue2,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30)),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(-0.6, 0.16),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 9),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                            data: new IconThemeData(),
+                            child: Text('10',
+                                style: GoogleFonts.robotoFlex(
+                                    color: Palette.darkBlue2,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30)),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0,0.16),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 10),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                            data: new IconThemeData(),
+                            child: Text('11',
+                                style: GoogleFonts.robotoFlex(
+                                    color: Palette.darkBlue2,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30)),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ))));
   }
 }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("Levels"),
+//       ),
+//       body: ListView.builder(
+//         itemCount: levels.length,
+//         itemBuilder: (context, index) {
+//           return ListTile(
+//             title: Text(levels[index].title),
+//             tileColor: index < levelInsertion ? pass : notPass,
+//             onTap: () {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(
+//                   builder: (context) => LevelScreen(index: index),
+//                 ),
+//               );
+//             },
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
 
 class LevelScreen extends StatelessWidget {
   final int index;
 
   LevelScreen({required this.index});
+
   @override
   Widget build(BuildContext context) {
     switch (index) {
