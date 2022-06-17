@@ -84,6 +84,7 @@ class TodoScreen extends StatelessWidget {
                         width: 75.0,
                         height: 75.0,
                         child: FloatingActionButton(
+                          heroTag: "1",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -93,13 +94,50 @@ class TodoScreen extends StatelessWidget {
                             );
                           },
                           child: IconTheme(
-                            data: new IconThemeData(),
-                            child: Text('1',
-                                style: GoogleFonts.robotoFlex(
-                                    color: Palette.darkBlue2,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30)),
-                          ),
+                              data: new IconThemeData(),
+                              child: levelInsertion >= 1
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('1',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('1',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
                           backgroundColor: Colors.white,
                         ),
                       ),
@@ -110,6 +148,7 @@ class TodoScreen extends StatelessWidget {
                         width: 70.0,
                         height: 70.0,
                         child: FloatingActionButton(
+                          heroTag: "2",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -119,13 +158,50 @@ class TodoScreen extends StatelessWidget {
                             );
                           },
                           child: IconTheme(
-                            data: new IconThemeData(),
-                            child: Text('2',
-                                style: GoogleFonts.robotoFlex(
-                                    color: Palette.darkBlue2,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30)),
-                          ),
+                              data: new IconThemeData(),
+                              child: levelInsertion >= 2
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('2',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('2',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
                           backgroundColor: Colors.white,
                         ),
                       ),
@@ -136,6 +212,7 @@ class TodoScreen extends StatelessWidget {
                         width: 70.0,
                         height: 70.0,
                         child: FloatingActionButton(
+                          heroTag: "3",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -145,13 +222,50 @@ class TodoScreen extends StatelessWidget {
                             );
                           },
                           child: IconTheme(
-                            data: new IconThemeData(),
-                            child: Text('3',
-                                style: GoogleFonts.robotoFlex(
-                                    color: Palette.darkBlue2,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30)),
-                          ),
+                              data: new IconThemeData(),
+                              child: levelInsertion >= 3
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('3',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('3',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
                           backgroundColor: Colors.white,
                         ),
                       ),
@@ -162,6 +276,7 @@ class TodoScreen extends StatelessWidget {
                         width: 70.0,
                         height: 70.0,
                         child: FloatingActionButton(
+                          heroTag: "4",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -171,13 +286,50 @@ class TodoScreen extends StatelessWidget {
                             );
                           },
                           child: IconTheme(
-                            data: new IconThemeData(),
-                            child: Text('4',
-                                style: GoogleFonts.robotoFlex(
-                                    color: Palette.darkBlue2,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30)),
-                          ),
+                              data: new IconThemeData(),
+                              child: levelInsertion >= 4
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('4',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('4',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
                           backgroundColor: Colors.white,
                         ),
                       ),
@@ -188,6 +340,7 @@ class TodoScreen extends StatelessWidget {
                         width: 70.0,
                         height: 70.0,
                         child: FloatingActionButton(
+                          heroTag: "5",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -197,13 +350,50 @@ class TodoScreen extends StatelessWidget {
                             );
                           },
                           child: IconTheme(
-                            data: new IconThemeData(),
-                            child: Text('5',
-                                style: GoogleFonts.robotoFlex(
-                                    color: Palette.darkBlue2,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30)),
-                          ),
+                              data: new IconThemeData(),
+                              child: levelInsertion >= 5
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('5',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('5',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
                           backgroundColor: Colors.white,
                         ),
                       ),
@@ -214,6 +404,7 @@ class TodoScreen extends StatelessWidget {
                         width: 70.0,
                         height: 70.0,
                         child: FloatingActionButton(
+                          heroTag: "6",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -223,13 +414,50 @@ class TodoScreen extends StatelessWidget {
                             );
                           },
                           child: IconTheme(
-                            data: new IconThemeData(),
-                            child: Text('6',
-                                style: GoogleFonts.robotoFlex(
-                                    color: Palette.darkBlue2,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30)),
-                          ),
+                              data: new IconThemeData(),
+                              child: levelInsertion >= 6
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('6',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('6',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
                           backgroundColor: Colors.white,
                         ),
                       ),
@@ -240,6 +468,7 @@ class TodoScreen extends StatelessWidget {
                         width: 70.0,
                         height: 70.0,
                         child: FloatingActionButton(
+                          heroTag: "7",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -249,13 +478,50 @@ class TodoScreen extends StatelessWidget {
                             );
                           },
                           child: IconTheme(
-                            data: new IconThemeData(),
-                            child: Text('7',
-                                style: GoogleFonts.robotoFlex(
-                                    color: Palette.darkBlue2,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30)),
-                          ),
+                              data: new IconThemeData(),
+                              child: levelInsertion >= 7
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('7',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('7',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
                           backgroundColor: Colors.white,
                         ),
                       ),
@@ -266,6 +532,7 @@ class TodoScreen extends StatelessWidget {
                         width: 70.0,
                         height: 70.0,
                         child: FloatingActionButton(
+                          heroTag: "8",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -275,13 +542,50 @@ class TodoScreen extends StatelessWidget {
                             );
                           },
                           child: IconTheme(
-                            data: new IconThemeData(),
-                            child: Text('8',
-                                style: GoogleFonts.robotoFlex(
-                                    color: Palette.darkBlue2,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30)),
-                          ),
+                              data: new IconThemeData(),
+                              child: levelInsertion >= 8
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('8',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('8',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
                           backgroundColor: Colors.white,
                         ),
                       ),
@@ -292,6 +596,7 @@ class TodoScreen extends StatelessWidget {
                         width: 70.0,
                         height: 70.0,
                         child: FloatingActionButton(
+                          heroTag: "9",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -301,13 +606,50 @@ class TodoScreen extends StatelessWidget {
                             );
                           },
                           child: IconTheme(
-                            data: new IconThemeData(),
-                            child: Text('9',
-                                style: GoogleFonts.robotoFlex(
-                                    color: Palette.darkBlue2,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30)),
-                          ),
+                              data: new IconThemeData(),
+                              child: levelInsertion >= 9
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('9',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('9',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
                           backgroundColor: Colors.white,
                         ),
                       ),
@@ -318,6 +660,7 @@ class TodoScreen extends StatelessWidget {
                         width: 70.0,
                         height: 70.0,
                         child: FloatingActionButton(
+                          heroTag: "10",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -327,23 +670,61 @@ class TodoScreen extends StatelessWidget {
                             );
                           },
                           child: IconTheme(
-                            data: new IconThemeData(),
-                            child: Text('10',
-                                style: GoogleFonts.robotoFlex(
-                                    color: Palette.darkBlue2,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30)),
-                          ),
+                              data: new IconThemeData(),
+                              child: levelInsertion >= 10
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('10',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('10',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
                           backgroundColor: Colors.white,
                         ),
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0,0.16),
+                      alignment: Alignment(0, 0.16),
                       child: SizedBox(
                         width: 70.0,
                         height: 70.0,
                         child: FloatingActionButton(
+                          heroTag: "11",
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -353,13 +734,50 @@ class TodoScreen extends StatelessWidget {
                             );
                           },
                           child: IconTheme(
-                            data: new IconThemeData(),
-                            child: Text('11',
-                                style: GoogleFonts.robotoFlex(
-                                    color: Palette.darkBlue2,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30)),
-                          ),
+                              data: new IconThemeData(),
+                              child: levelInsertion >= 11
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('11',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('11',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
                           backgroundColor: Colors.white,
                         ),
                       ),

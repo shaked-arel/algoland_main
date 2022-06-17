@@ -75,76 +75,457 @@ class TodoScreen extends StatelessWidget {
                   //scrollDirection: Axis.horizontal,
                   children: <Widget>[
                     Align(
-                      alignment: Alignment(-0.6,-0.8),
-                child: SizedBox(width: 75.0, height: 75.0,
-                  child: FloatingActionButton(
-                    onPressed: () {Navigator.push(context,
-                        MaterialPageRoute(
-                          builder: (context) => LevelScreen(index: 0),),);},
-                      child: IconTheme(data: new IconThemeData(),
-                        child: Text('1', style: GoogleFonts.robotoFlex(color: Palette.darkBlue2, fontWeight: FontWeight.bold, fontSize: 30)),
-                      ), backgroundColor: Colors.white,),),),
-                    Align(
-                      alignment: Alignment(0,-0.8),
-                      child: SizedBox(width: 70.0, height: 70.0,
+                      alignment: Alignment(-0.6, -0.8),
+                      child: SizedBox(
+                        width: 75.0,
+                        height: 75.0,
                         child: FloatingActionButton(
-                          onPressed: () {Navigator.push(context,
-                            MaterialPageRoute(
-                              builder: (context) => LevelScreen(index: 1),),);},
-                          child: IconTheme(data: new IconThemeData(),
-                            child: Text('2', style: GoogleFonts.robotoFlex(color: Palette.darkBlue2, fontWeight: FontWeight.bold, fontSize: 30)),
-                          ), backgroundColor: Colors.white,),),),
+                          heroTag: "1",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 0),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                              data: new IconThemeData(),
+                              child: levelBinary >= 1
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('1',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('1',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
                     Align(
-                      alignment: Alignment(0.6,-0.8),
-                      child: SizedBox(width: 70.0, height: 70.0,
+                      alignment: Alignment(0, -0.8),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
                         child: FloatingActionButton(
-                          onPressed: () {Navigator.push(context,
-                            MaterialPageRoute(
-                              builder: (context) => LevelScreen(index: 2),),);},
-                          child: IconTheme(data: new IconThemeData(),
-                            child: Text('3', style: GoogleFonts.robotoFlex(color: Palette.darkBlue2, fontWeight: FontWeight.bold, fontSize: 30)),
-                          ), backgroundColor: Colors.white,),),),
+                          heroTag: "2",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 1),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                              data: new IconThemeData(),
+                              child: levelBinary >= 2
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('2',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('2',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
                     Align(
-                      alignment: Alignment(-0.6,-0.48),
-                      child: SizedBox(width: 70.0, height: 70.0,
+                      alignment: Alignment(0.6, -0.8),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
                         child: FloatingActionButton(
-                          onPressed: () {Navigator.push(context,
-                            MaterialPageRoute(
-                              builder: (context) => LevelScreen(index: 3),),);},
-                          child: IconTheme(data: new IconThemeData(),
-                            child: Text('4', style: GoogleFonts.robotoFlex(color: Palette.darkBlue2, fontWeight: FontWeight.bold, fontSize: 30)),
-                          ), backgroundColor: Colors.white,),),),
+                          heroTag: "3",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 2),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                              data: new IconThemeData(),
+                              child: levelBinary >= 3
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('3',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('3',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
                     Align(
-                      alignment: Alignment(0,-0.48),
-                      child: SizedBox(width: 70.0, height: 70.0,
+                      alignment: Alignment(-0.6, -0.48),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
                         child: FloatingActionButton(
-                          onPressed: () {Navigator.push(context,
-                            MaterialPageRoute(
-                              builder: (context) => LevelScreen(index: 4),),);},
-                          child: IconTheme(data: new IconThemeData(),
-                            child: Text('5', style: GoogleFonts.robotoFlex(color: Palette.darkBlue2, fontWeight: FontWeight.bold, fontSize: 30)),
-                          ), backgroundColor: Colors.white,),),),
+                          heroTag: "4",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 3),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                              data: new IconThemeData(),
+                              child: levelBinary >= 4
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('4',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('4',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
                     Align(
-                      alignment: Alignment(0.6,-0.48),
-                      child: SizedBox(width: 70.0, height: 70.0,
+                      alignment: Alignment(0, -0.48),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
                         child: FloatingActionButton(
-                          onPressed: () {Navigator.push(context,
-                            MaterialPageRoute(
-                              builder: (context) => LevelScreen(index: 5),),);},
-                          child: IconTheme(data: new IconThemeData(),
-                            child: Text('6', style: GoogleFonts.robotoFlex(color: Palette.darkBlue2, fontWeight: FontWeight.bold, fontSize: 30)),
-                          ), backgroundColor: Colors.white,),),),
+                          heroTag: "5",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 4),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                              data: new IconThemeData(),
+                              child: levelBinary >= 5
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('5',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('5',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
                     Align(
-                      alignment: Alignment(-0.6,-0.16),
-                      child: SizedBox(width: 70.0, height: 70.0,
+                      alignment: Alignment(0.6, -0.48),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
                         child: FloatingActionButton(
-                          onPressed: () {Navigator.push(context,
-                            MaterialPageRoute(
-                              builder: (context) => LevelScreen(index: 6),),);},
-                          child: IconTheme(data: new IconThemeData(),
-                            child: Text('7', style: GoogleFonts.robotoFlex(color: Palette.darkBlue2, fontWeight: FontWeight.bold, fontSize: 30)),
-                          ), backgroundColor: Colors.white,),),),
-                  ],))));}}
+                          heroTag: "6",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 5),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                              data: new IconThemeData(),
+                              child: levelBinary >= 6
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('6',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('6',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(-0.6, -0.16),
+                      child: SizedBox(
+                        width: 70.0,
+                        height: 70.0,
+                        child: FloatingActionButton(
+                          heroTag: "7",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LevelScreen(index: 6),
+                              ),
+                            );
+                          },
+                          child: IconTheme(
+                              data: new IconThemeData(),
+                              child: levelBinary >= 7
+                                  ? Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('7',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))
+                                  : Container(
+                                      constraints: BoxConstraints.expand(),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/not-complete.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      child: Container(
+                                        margin:
+                                            const EdgeInsets.only(top: 17.0),
+                                        child: Text('7',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.robotoFlex(
+                                              color: Palette.darkBlue2,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                            )),
+                                      ))),
+                          backgroundColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ))));
+  }
+}
 // return Scaffold(
 //   appBar: AppBar(
 //     backgroundColor: Colors.white12,
