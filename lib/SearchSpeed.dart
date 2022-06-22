@@ -1,3 +1,5 @@
+import 'package:binarysearch/config/palette.dart';
+
 import './BinarySearchProve.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +15,7 @@ class SearchSpeed extends StatelessWidget {
             return Container(
               constraints: const BoxConstraints(maxWidth: 300),
               child: Slider(
+                activeColor: Palette.lightBlue2,
                 value: provider.ExecSpeed,
                 onChanged: (value) => provider.ExecSpeed = value,
               ),

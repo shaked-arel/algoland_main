@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
+import 'config/palette.dart';
+
 class Search extends StatefulWidget {
   // const Search({
   //   Key key,
@@ -31,7 +33,7 @@ class _SearchState<BinartSearchProvider extends SearchProvider>
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
         Container(
           width: 100,
@@ -46,26 +48,22 @@ class _SearchState<BinartSearchProvider extends SearchProvider>
             keyboardType: TextInputType.number,
           ),
         ),
-        // Selector<T, bool>(
-        //   selector: (_, searchProvider) => searchProvider.isSearching,
-        //   builder: (_, isSearching, child) {
-        //     return RaisedButton(
-        //       onPressed: isSearching ? null : _search,
-        //       child: child,
-        //     );
-        //   },
-        //   child: const Text('Search'),
-        // )
-
         Selector<BinarySearchProvider, bool>(
           selector: (_, provider) => provider.isSearching,
           builder: (_, isSearching, child) {
-            return RaisedButton(
-              color: Colors.blue,
-              disabledColor: Colors.blueGrey,
+            return Container(
+                width: 150,
+                height: 40,
+                child: ElevatedButton(
+                child: child,
+                style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),),
+                  primary: Palette.lightBlue2,
+            ),
               onPressed: isSearching ? null : _search,
-              child: child,
-            );
+              //child: child,
+            ));
           },
           child: const Text('Search', style: TextStyle(color: Colors.white)),
         )
