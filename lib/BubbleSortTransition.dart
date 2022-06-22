@@ -1,10 +1,8 @@
 import 'package:binarysearch/config/palette.dart';
-import 'package:binarysearch/quizBinarySearch.dart';
 import 'package:binarysearch/quizBubbleSort.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:popup_card/popup_card.dart';
-import 'BinarySearchSimulation.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'BubbleSortGame.dart';
 import 'BubbleSortSimulation.dart';
 
@@ -12,20 +10,21 @@ class BubbleSortTransition extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white12,
           elevation: 0,
-          title: Text(
-            'What would you like to do?',
-            style: TextStyle(
-                color: Palette.darkBlue2, fontSize: 20, fontFamily: 'Calibri'),
-          ),
+          title: Text('Bubble Sort',
+              style: GoogleFonts.robotoFlex(
+                  color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
+          centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios),
-            color: Colors.blueAccent,
+            color: Palette.darkBlue2,
             onPressed: () {
               Navigator.pop(context);
             },
           ),
+          backgroundColor: Colors.white,
+          // appbar color.
+          foregroundColor: Palette.darkBlue2, // appbar text color.
         ),
         body: const Center(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -33,29 +32,37 @@ class BubbleSortTransition extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             Align(
-              alignment: const Alignment(0.5, 1.15), // top left
-              // child: Material(
-              //     elevation: 0,
-              //     child: Image.asset('assets/popup.png', width: 190)),
-              child: PopupItemLauncher(
-                tag: 'test',
-                child: Align(
-                  alignment: const Alignment(0.5, 1.15), // top left
-                  child: Material(
-                      elevation: 0,
-                      child: Image.asset('assets/popup.png', width: 190)),
+              alignment: const Alignment(0.3, 1.02),
+              child: RawMaterialButton(
+                shape: const ContinuousRectangleBorder(
+                  borderRadius: const BorderRadius.only(),
                 ),
-                popUp: PopUpItem(
-                  padding: EdgeInsets.all(8),
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(32)),
-                  elevation: 2,
-                  tag: 'test',
-                  child: PopUpItemBody(),
-                  //PopUpItemBody(),
-                ),
+                child: Image.asset('assets/popup.png', width: 200,),
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        backgroundColor: Color(0xfbfbfbfb),
+                        title: Text('Bubble Sort algorithm', style: GoogleFonts.robotoFlex(color: Palette.orange, fontWeight: FontWeight.bold),),
+                        content:
+                        Container(
+                            width: 200,
+                            height: 210,
+                            child: Column(
+                              children: <Widget>[
+                                Text( 'Bubble Sort is the simplest sorting algorithm that works by'
+                            ' repeatedly swapping the adjacent elements if they are in wrong order.', style: GoogleFonts.robotoFlex(fontSize: 18),),
+                                SizedBox(height: 13,),
+                                Align(alignment: Alignment.bottomCenter,
+                                  child: Image.asset(
+                                      "assets/dialog.png"),),
+                              ],
+                            )
+                        ),
+                      ));
+                },
               ),
+
             ),
             Align(
               alignment: const Alignment(0, -0.6), // top left
@@ -133,37 +140,3 @@ class BubbleSortTransition extends StatelessWidget {
       );
 }
 
-class PopUpItemBody extends StatelessWidget {
-  const PopUpItemBody({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // const Divider(
-          //   color: Colors.white,
-          //   thickness: 0.2,
-          // ),
-          const TextField(
-            decoration: InputDecoration(
-              hintText:
-                  'Bubble Sort is the simplest sorting algorithm that works by'
-                  ' repeatedly swapping the adjacent elements if they are in wrong order.',
-              border: InputBorder.none,
-            ),
-            cursorColor: Colors.white,
-            maxLines: 6,
-          ),
-          // const Divider(
-          //   color: Colors.white,
-          //   thickness: 0.2,
-          // ),
-        ],
-      ),
-    );
-  }
-}
