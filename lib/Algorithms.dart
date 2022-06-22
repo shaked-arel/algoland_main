@@ -15,11 +15,11 @@ class Algorithms extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           title: Text('Algoland', style: GoogleFonts.robotoFlex(
-                color: Palette.lightBlue2, fontWeight: FontWeight.bold)),
+                color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios),
-            color: Palette.lightBlue2,
+            color: Palette.darkBlue2,
             onPressed: () {
               Navigator.pop(context);
             },
@@ -43,7 +43,7 @@ class Algorithms extends StatelessWidget {
                       Align(
                         alignment: Alignment(0, -0.9),
                         child: Text(
-                          'Bubble sort',
+                          'Bubble Sort',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.robotoFlex(
                               fontWeight: FontWeight.bold, fontSize: 22),
@@ -107,7 +107,7 @@ class Algorithms extends StatelessWidget {
                     children: <Widget>[
                       Align(
                         alignment: Alignment(0, -0.9),
-                        child: Text('Insertion sort',
+                        child: Text('Insertion Sort',
                             textAlign: TextAlign.center,
                             style: GoogleFonts.robotoFlex(
                                 fontWeight: FontWeight.bold, fontSize: 22)),
@@ -170,7 +170,7 @@ class Algorithms extends StatelessWidget {
                     children: <Widget>[
                       Align(
                         alignment: Alignment(0, -0.9),
-                        child: Text('Binary search',
+                        child: Text('Binary Search',
                             textAlign: TextAlign.center,
                             style: GoogleFonts.robotoFlex(
                                 fontWeight: FontWeight.bold, fontSize: 22)),

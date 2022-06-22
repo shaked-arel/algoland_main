@@ -1,7 +1,5 @@
 import 'dart:io';
-
 import 'package:binarysearch/config/palette.dart';
-import 'package:binarysearch/wait.dart';
 import 'package:flutter/material.dart';
 
 class Answer extends StatefulWidget {
