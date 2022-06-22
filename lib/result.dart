@@ -1,7 +1,10 @@
+import 'package:binarysearch/config/palette.dart';
 import 'package:binarysearch/global.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;
@@ -13,18 +16,12 @@ class Result extends StatelessWidget {
 
   String get resultPhrase {
     String resultText;
-    // if (resultScore <= 8) {
-    //   resultText = 'you are amazing!';
-    // } else if (resultScore <= 12) {
-    //   resultText = 'greate job!';
-    // } else {
-    //   resultText = 'try again...';
-    // }
-    resultText = 'You were able to answer ' +
-        resultScore.toString() +
-        '/' +
-        numOfQuestions.toString() +
-        ' correct answers';
+    resultText = '';
+    //+
+        // resultScore.toString() +
+        // '/' +
+        // numOfQuestions.toString() +
+        // ' correct answers';
     if (resultScore < numOfQuestions) {
       resultText += "\r\n" "\r\n" 'Try again!';
     } else {
@@ -63,15 +60,35 @@ class Result extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(children: <Widget>[
+        SizedBox(height: 40,),
+      Text('You were able to answer ', style: GoogleFonts.robotoFlex(
+          fontSize: 25, fontWeight: FontWeight.bold
+      ),),
+        SizedBox(height: 40,),
+      Align(
+      alignment: Alignment.center,
+      child: CircularPercentIndicator(
+        radius: 90,
+        percent: resultScore*20 / 100,
+        lineWidth: 6,
+        backgroundColor: Palette.lightgray,
+        progressColor: Palette.yellow,
+        center: new Text(resultScore.toString()+ '/' + '5',
+            style: GoogleFonts.robotoFlex(
+                fontWeight: FontWeight.bold, fontSize: 25,
+                color: Palette.yellow)),
+      ),
+        ),
         Text(
           resultPhrase,
-          style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+          style: GoogleFonts.robotoFlex(fontSize: 25, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
+        SizedBox(height: 30,),
         FlatButton(
           onPressed: reset,
-          child: Text('restart Quiz'),
-          textColor: Colors.blue,
+          child: Text('restart Quiz', style: GoogleFonts.robotoFlex(fontSize: 18)),
+          textColor: Palette.darkBlue2,
         )
       ]),
     );
