@@ -1,12 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:binarysearch/Algorithms.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterfire_ui/auth.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import './auth.dart';
 import 'config/palette.dart';
 
@@ -26,43 +22,72 @@ class SplashScreen extends StatelessWidget {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
-        //backgroundColor: Colors.blue,
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () {
-        //     Navigator.push(context,
-        //         new MaterialPageRoute(builder: (context) => AuthGate()));
-        //   },
-        //   tooltip: 'Next Page',
-        //   child: IconTheme(
-        //     data: new IconThemeData(
-        //       color: Palette.darkBlue2,
-        //     ),
-        //     child: new Icon(Icons.arrow_forward),
-        //   ),
-        //   backgroundColor: Colors.white,
-        // ),
         body: Stack(
             children: <Widget>[
-              // Align(alignment: Alignment.topRight,
-              //     child: FloatingActionButton(
-              //   onPressed: () {
-              //     _signOut();
-              //     Navigator.push(context,
-              //         new MaterialPageRoute(builder: (context) => SignInScreen(
-              //           providerConfigs: [
-              //             EmailProviderConfiguration(),
-              //           ],
-              //         )));
-              //       },
-              //     tooltip: 'Next Page',
-              //     child: IconTheme(
-              //     data: new IconThemeData(
-              //       color: Palette.darkBlue2,
-              //     ),
-              //     child: new Icon(Icons.logout),
-              //   ),
-              //   backgroundColor: Colors.white,
-              // )),
+              Align(alignment: Alignment.topRight,
+                  child: FloatingActionButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        backgroundColor: Color(0xfbfbfbfb),
+                        title: Text("Do you want to log out?"),
+                        actions: [
+                          Container(
+                          width: 300,
+                          child: Row(
+                            children: <Widget>[
+                              Center(
+                                child: RaisedButton(
+                                  color: Palette.lightgray,
+                                  textColor: Colors.black,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                    BorderRadius.circular(25.0),
+                                  ),
+                                  child: Text(
+                                    'Log me out',
+                                    style: TextStyle(fontSize: 14),
+                                  ),
+                                  onPressed: () {
+                                    _signOut();
+                                    Navigator.push(context,
+                                        new MaterialPageRoute(builder: (context) => AuthGate()));
+                                  },
+                                ),
+                              ),
+                              SizedBox(width: 10,),
+                              Center(
+                                child: RaisedButton(
+                                  color: Palette.darkBlue2,
+                                  textColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                    BorderRadius.circular(25.0),
+                                  ),
+                                  child: Text(
+                                    'No, stay logged in!',
+                                    style: TextStyle(fontSize: 14),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ),
+                            ],
+                          )),
+                        ],
+                      ));
+                    },
+                  tooltip: 'Next Page',
+                  child: IconTheme(
+                  data: new IconThemeData(
+                    color: Palette.darkBlue2,
+                  ),
+                  child: new Icon(Icons.person),
+                ),
+                backgroundColor: Colors.white,
+              )),
           Center(
               //child: Lottie.asset('assets/logo.json')),
               child: Image.asset('assets/Hello.gif', width: 250)),
@@ -82,14 +107,12 @@ class HomePage extends StatelessWidget {
               width: 180,
               height: 40,
               child: ElevatedButton(
-
                 style: ElevatedButton.styleFrom(
                   side: BorderSide(width: 2.0, color: Palette.darkBlue2,
                   ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),),
                   primary: Colors.white,
-                  //primary: _hasBeenPressed ? Colors.grey : Palette.lightBlue2,
                 ),
                 onPressed: () {
                   Navigator.push(context,
@@ -109,7 +132,6 @@ class HomePage extends StatelessWidget {
               width: 180,
               height: 40,
               child: ElevatedButton(
-
                 style: ElevatedButton.styleFrom(
                   side: BorderSide(width: 2.0, color: Palette.darkBlue2,
                   ),
@@ -123,18 +145,19 @@ class HomePage extends StatelessWidget {
                       context: context,
                       builder: (context) => AlertDialog(
                         backgroundColor: Color(0xfbfbfbfb),
-                        title: Text('Algoland', textAlign: TextAlign.center, style: GoogleFonts.robotoFlex(color: Colors.orange, fontWeight: FontWeight.bold),),
+                        title: Text('About Algoland', textAlign: TextAlign.center, style: GoogleFonts.robotoFlex(color: Colors.orange, fontWeight: FontWeight.bold),),
                         content:
                         Container(
-                            width: 200,
-                            height: 320,
+                            width: 280,
+                            height: 450,
                             child: Column(
                               children: <Widget>[
                                 Text( 'Algoland is a friendly app designed to help you learn algorithms in an experiential way. \r\n'
-                                    'You can learn by simulation, quiz and even games. \r\n'
-                                    'Hope you enjoy!', textAlign: TextAlign.center,
+                                    'You can learn by simulation, quiz and even games. \r\n \r\n'
+                                    'Hope you enjoy! \r\n \r\n'
+                                    '© Shaked Arel, Itay Carmiel, Noam Sery Levi \r\n', textAlign: TextAlign.center,
                                   style: GoogleFonts.robotoFlex(fontSize: 21),),
-                                SizedBox(height: 13,),
+                                SizedBox(height: 5,),
                                 Align(alignment: Alignment.bottomCenter,
                                   child: Image.asset(
                                       "assets/dialog.png"),),
