@@ -1,3 +1,6 @@
+import 'package:google_fonts/google_fonts.dart';
+
+import '../../config/palette.dart';
 import '../../openNumber.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -23,9 +26,7 @@ class _Level2PageState extends State<Level2Page> {
   int swap3 = 0;
   int swap4 = 0;
   int swap5 = 0;
-  bool isVisibleGood = false;
-  bool isVisible = false;
-  bool isVisibleBad = false;
+  Color col = Palette.orange;
 
   @override
   Widget build(BuildContext context) {
@@ -85,140 +86,246 @@ class _Level2PageState extends State<Level2Page> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("binary game"),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      body: Column(children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            openNumber(number: '1'),
-            openNumber(number: '2'),
-            openNumber(number: '3'),
-            openNumber(number: '4'),
-            openNumber(number: '5'),
-          ],
-        ),
-        Text(
-          "you are searching for 2! \n press to fit to the next step",
-          style: TextStyle(fontSize: 20),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            InkWell(
-              onTap: () {
-                setState(() {
-                  swap1++;
-                  swap1 = swap1 % 4;
-                });
-              },
-              child: swapWidget1,
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  swap2++;
-                  swap2 = swap2 % 4;
-                });
-              },
-              child: swapWidget2,
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  swap3++;
-                  swap3 = swap3 % 4;
-                });
-              },
-              child: swapWidget3,
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  swap4++;
-                  swap4 = swap4 % 4;
-                });
-              },
-              child: swapWidget4,
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  swap5++;
-                  swap5 = swap5 % 4;
-                });
-              },
-              child: swapWidget5,
-            ),
-          ],
-        ),
-        Visibility(
-            visible: isVisibleGood,
-            child: Lottie.network(
-                'https://assets10.lottiefiles.com/packages/lf20_oaw8d1yt.json',
-                height: 200,
-                repeat: true)),
-        Visibility(
-            visible: isVisibleBad,
-            child: Lottie.network(
-                'https://assets10.lottiefiles.com/private_files/lf30_jq4i7W.json',
-                height: 200,
-                repeat: false)),
-        ElevatedButton(
+        appBar: AppBar(
+          title: Text("Level 5",
+              style: GoogleFonts.robotoFlex(fontWeight: FontWeight.bold)),
+          centerTitle: true,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
             onPressed: () {
-              if (swap1 == 0 &&
-                  swap2 == 0 &&
-                  swap3 == 1 &&
-                  swap4 == 0 &&
-                  swap5 == 0) {
-                setState(() {
-                  isVisibleGood = !isVisibleGood;
-                  isVisible = !isVisible;
-                });
-                setState(() {
-                  final FirebaseAuth auth = FirebaseAuth.instance;
-                  final User user = auth.currentUser!;
-                  final uid = user.uid;
-                  FirebaseDatabase database = FirebaseDatabase.instance;
-                  DatabaseReference myRef =
-                      FirebaseDatabase.instance.ref("progress/user");
-                  var ref = myRef.child(uid);
-                  ref.update({
-                    "levelsBinary": 5,
-                  });
-                  levelBinary = 5;
-                });
-              } else {
-                setState(() {
-                  isVisibleBad = !isVisibleBad;
-                  Future.delayed(const Duration(milliseconds: 250), () {
-                    isVisibleBad = !isVisibleBad;
-                  });
-                });
-              }
+              Navigator.pop(context);
             },
-            child: Text('Check')),
-        Visibility(
-            visible: isVisible,
-            child: ElevatedButton(
-              child: Text("continue"),
+          ),
+          backgroundColor: Colors.white, // appbar color.
+          foregroundColor: Palette.darkBlue2, // appbar text color.
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/game-back2.png'), fit: BoxFit.cover),
+          ),
+          child: Column(children: <Widget>[
+            SizedBox(
+              height: 35,
+            ),
+            Center(
+              child: Text(
+                "current",
+                style: GoogleFonts.robotoFlex(
+                    fontWeight: FontWeight.bold, fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            SizedBox(
+              width: 350,
+              height: 80,
+              child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(5),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        openNumber(number: '1'),
+                        openNumber(number: '2'),
+                        openNumber(number: '3'),
+                        openNumber(number: '4'),
+                        openNumber(number: '5'),
+                      ],
+                    ),
+                  )),
+            ),
+            SizedBox(
+              height: 55,
+            ),
+            Text(
+              'you are searching for 2! \n press to fit to the next step',
+              style: GoogleFonts.robotoFlex(
+                  fontWeight: FontWeight.bold, fontSize: 22),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      swap1++;
+                      swap1 = swap1 % 4;
+                    });
+                  },
+                  child: swapWidget1,
+                ),
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      swap2++;
+                      swap2 = swap2 % 4;
+                    });
+                  },
+                  child: swapWidget2,
+                ),
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      swap3++;
+                      swap3 = swap3 % 4;
+                    });
+                  },
+                  child: swapWidget3,
+                ),
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      swap4++;
+                      swap4 = swap4 % 4;
+                    });
+                  },
+                  child: swapWidget4,
+                ),
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      swap5++;
+                      swap5 = swap5 % 4;
+                    });
+                  },
+                  child: swapWidget5,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            RaisedButton(
+              color: Palette.lightBlue2,
+              textColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25.0),
+              ),
+              child: Text(
+                'Check',
+                style: TextStyle(fontSize: 20),
+              ),
               onPressed: () {
-                Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                      builder: (context) => Level2bPage(),
-                    ));
+                if (swap1 == 0 &&
+                    swap2 == 0 &&
+                    swap3 == 1 &&
+                    swap4 == 0 &&
+                    swap5 == 0) {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            backgroundColor: Color(0xfbfbfbfb),
+                            title: Text("Good job"),
+                            content: Image.asset(
+                              'assets/good.gif',
+                              width: 200,
+                              height: 200,
+                            ),
+                            actions: [
+                              Column(
+                                children: <Widget>[
+                                  Center(
+                                    child: RaisedButton(
+                                      color: col,
+                                      textColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(25.0),
+                                      ),
+                                      child: Text(
+                                        'Continue',
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            new MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Level2bPage(),
+                                            ));
+                                      },
+                                    ),
+                                  ),
+                                  AllBackButton(),
+                                ],
+                              )
+                            ],
+                          ));
+                  setState(() {
+                    final FirebaseAuth auth = FirebaseAuth.instance;
+                    final User user = auth.currentUser!;
+                    final uid = user.uid;
+                    FirebaseDatabase database = FirebaseDatabase.instance;
+                    DatabaseReference myRef =
+                        FirebaseDatabase.instance.ref("progress/user");
+                    var ref = myRef.child(uid);
+                    ref.update({
+                      "levelsBinary": 5,
+                    });
+                    levelBinary = 5;
+                  });
+                } else {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            backgroundColor: Color(0xfbfbfbfb),
+                            title: Text("Try Again"),
+                            content: Image.asset(
+                              'assets/tryAgain.gif',
+                              width: 200,
+                              height: 200,
+                            ),
+                            actions: [
+                              Column(
+                                children: <Widget>[
+                                  Center(
+                                    child: RaisedButton(
+                                      color: col,
+                                      textColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(25.0),
+                                      ),
+                                      child: Text(
+                                        'Try again',
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            new MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Level2Page(),
+                                            ));
+                                      },
+                                    ),
+                                  ),
+                                  AllBackButton(),
+                                ],
+                              )
+                            ],
+                          ));
+                }
               },
-            )),
-        AllBackButton(),
-      ]),
-    );
+            ),
+          ]),
+        ));
   }
 }

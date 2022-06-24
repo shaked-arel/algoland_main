@@ -1,12 +1,16 @@
+import 'package:binarysearch/global.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../backButton.dart';
+import '../../config/palette.dart';
 import '../../openNumber.dart';
 import '../../searchNumber.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+
+import '../level1/level1c.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../global.dart';
-import 'level1c.dart';
 
 class Level1bPage extends StatefulWidget {
   @override
@@ -15,98 +19,238 @@ class Level1bPage extends StatefulWidget {
 
 class _Level1bPageState extends State<Level1bPage>
     with TickerProviderStateMixin {
-  bool isVisibleGood = false;
-  bool isVisible = false;
-  bool isVisibleBad = false;
+  Color col = Palette.yellow;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("binary game"),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        appBar: AppBar(
+          title: Text("Level 2",
+              style: GoogleFonts.robotoFlex(fontWeight: FontWeight.bold)),
+          centerTitle: true,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          backgroundColor: Colors.white, // appbar color.
+          foregroundColor: Palette.darkBlue2, // appbar text color.
         ),
-      ),
-      body: Column(children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            openNumber(number: '22'),
-            openNumber(number: '29'),
-            searchNumber(number: '46'),
-            openNumber(number: '83'),
-            openNumber(number: '94'),
-          ],
-        ),
-        Text("you are searching for 71 press if you should look right or left"),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    isVisibleBad = !isVisibleBad;
-                    Future.delayed(const Duration(milliseconds: 250), () {
-                      isVisibleBad = !isVisibleBad;
-                    });
-                  });
-                },
-                child: Text('Left')),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/game-backg.png'), fit: BoxFit.cover),
+          ),
+          child: Column(children: <Widget>[
             SizedBox(
-              width: 10,
+              height: 30,
             ),
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    isVisibleGood = !isVisibleGood;
-                    isVisible = !isVisible;
-                  });
-                  setState(() {
-                    final FirebaseAuth auth = FirebaseAuth.instance;
-                    final User user = auth.currentUser!;
-                    final uid = user.uid;
-                    FirebaseDatabase database = FirebaseDatabase.instance;
-                    DatabaseReference myRef =
-                        FirebaseDatabase.instance.ref("progress/user");
-                    var ref = myRef.child(uid);
-                    ref.update({
-                      "levelsBinary": 2,
-                    });
-                    levelBinary = 2;
-                  });
-                },
-                child: Text('Right')),
-          ],
-        ),
-        Visibility(
-            visible: isVisibleGood,
-            child: Lottie.network(
-                'https://assets10.lottiefiles.com/packages/lf20_oaw8d1yt.json',
-                height: 200,
-                repeat: true)),
-        Visibility(
-            visible: isVisibleBad,
-            child: Lottie.network(
-                'https://assets10.lottiefiles.com/private_files/lf30_jq4i7W.json',
-                height: 200,
-                repeat: false)),
-        Visibility(
-            visible: isVisible,
-            child: ElevatedButton(
-              child: Text("continue"),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                      builder: (context) => Level1cPage(),
-                    ));
-              },
-            )),
-        AllBackButton(),
-      ]),
-    );
+            Text(
+              'You are searching for',
+              style: GoogleFonts.robotoFlex(
+                  fontWeight: FontWeight.bold, fontSize: 22),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+                height: 60,
+                width: 60,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.white,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(50))),
+                child: Center(
+                    child: Text(
+                  '71',
+                  style: GoogleFonts.robotoFlex(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 30,
+                      color: Palette.yellow),
+                  textAlign: TextAlign.center,
+                ))),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+                width: 350,
+                height: 80,
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(5),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        openNumber(number: '22'),
+                        openNumber(number: '29'),
+                        searchNumber(number: '46'),
+                        openNumber(number: '83'),
+                        openNumber(number: '94'),
+                      ],
+                    ),
+                  ),
+                )),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              'press if you should look right or left',
+              style: GoogleFonts.robotoFlex(
+                  fontWeight: FontWeight.bold, fontSize: 22),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: 150,
+                  height: 50,
+                  child: RaisedButton(
+                    color: col,
+                    textColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                    child: Text(
+                      'Left',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                                backgroundColor: Color(0xfbfbfbfb),
+                                title: Text("Try Again"),
+                                content: Image.asset(
+                                  'assets/tryAgain.gif',
+                                  width: 200,
+                                  height: 200,
+                                ),
+                                actions: [
+                                  Column(
+                                    children: <Widget>[
+                                      Center(
+                                        child: RaisedButton(
+                                          color: col,
+                                          textColor: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(25.0),
+                                          ),
+                                          child: Text(
+                                            'Try again',
+                                            style: TextStyle(fontSize: 20),
+                                          ),
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                new MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Level1bPage(),
+                                                ));
+                                          },
+                                        ),
+                                      ),
+                                      AllBackButton(),
+                                    ],
+                                  )
+                                ],
+                              ));
+                      setState(() {
+                        final FirebaseAuth auth = FirebaseAuth.instance;
+                        final User user = auth.currentUser!;
+                        final uid = user.uid;
+                        FirebaseDatabase database = FirebaseDatabase.instance;
+                        DatabaseReference myRef =
+                            FirebaseDatabase.instance.ref("progress/user");
+                        var ref = myRef.child(uid);
+                        ref.update({
+                          "levelsBinary": 2,
+                        });
+                        levelBinary = 2;
+                      });
+                    },
+                  ),
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                Container(
+                  width: 150,
+                  height: 50,
+                  child: RaisedButton(
+                    color: col,
+                    textColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                    child: Text(
+                      'Right',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                                backgroundColor: Color(0xfbfbfbfb),
+                                title: Text("Good job"),
+                                content: Image.asset(
+                                  'assets/good.gif',
+                                  width: 200,
+                                  height: 200,
+                                ),
+                                actions: [
+                                  Column(
+                                    children: <Widget>[
+                                      Center(
+                                        child: RaisedButton(
+                                          color: col,
+                                          textColor: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(25.0),
+                                          ),
+                                          child: Text(
+                                            'Continue',
+                                            style: TextStyle(fontSize: 20),
+                                          ),
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                new MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Level1cPage(),
+                                                ));
+                                          },
+                                        ),
+                                      ),
+                                      AllBackButton(),
+                                    ],
+                                  )
+                                ],
+                              ));
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ]),
+        ));
   }
 }
