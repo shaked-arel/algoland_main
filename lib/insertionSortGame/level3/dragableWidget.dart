@@ -1,3 +1,4 @@
+import 'package:binarysearch/config/palette.dart';
 import 'package:flutter/material.dart';
 
 class FruitBox extends StatelessWidget {
@@ -32,7 +33,7 @@ class FruitBox extends StatelessWidget {
       ),
       feedback: Material(
         child: Container(
-          color: Colors.orange.shade200,
+          color: Palette.orange,
           height: 75,
           width: 75,
           child: Center(
@@ -46,7 +47,7 @@ class FruitBox extends StatelessWidget {
       childWhenDragging: Container(
         height: 75,
         width: 75,
-        color: Colors.teal.shade800,
+        // color: Palette.lightBlue,
       ),
     );
   }

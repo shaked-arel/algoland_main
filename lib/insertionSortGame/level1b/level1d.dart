@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import '../../backButton.dart';
-//import '../level1b/level1d.dart';
+import '../../config/palette.dart';
 import '../level2/main.dart';
 import '../../main.dart';
 import '../../normalNumber.dart';
@@ -21,37 +22,21 @@ class Level1dPage extends StatefulWidget {
 }
 
 class _Level1dState extends State<Level1dPage> with TickerProviderStateMixin {
-  Random rnd = new Random();
   bool swap = false;
-  bool isVisible = false;
-  bool isVisibleGood = false;
-  bool isVisibleBad = false;
-
-  //controller
-  late final AnimationController _controller;
-  late final AnimationController _WrongController;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
-    _WrongController =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-    _WrongController.dispose();
-  }
-
+  Color col = Palette.yellow;
   @override
   Widget build(BuildContext context) {
     var buttonTile = ListTile(
       title: RaisedButton(
-        child: Text("Swap"),
+        color: col,
+        textColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25.0),
+        ),
+        child: Text(
+          'Swap',
+          style: TextStyle(fontSize: 20),
+        ),
         onPressed: () {
           setState(() {
             swap = !swap;
@@ -73,94 +58,209 @@ class _Level1dState extends State<Level1dPage> with TickerProviderStateMixin {
     } else {
       swapWidgetReverse = SortNumber(number: "95");
     }
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Switch game"),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        appBar: AppBar(
+          title: Text("Level 4",
+              style: GoogleFonts.robotoFlex(fontWeight: FontWeight.bold)),
+          centerTitle: true,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          backgroundColor: Colors.white, // appbar color.
+          foregroundColor: Palette.darkBlue2, // appbar text color.
         ),
-      ),
-      body: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/game-backg.png'), fit: BoxFit.cover),
+          ),
+          child: Column(
             children: <Widget>[
-              NormalFormNumber(number: "8"),
-              NormalFormNumber(number: "23"),
-              NormalFormNumber(number: "48"),
-              swapWidgetReverse,
-              swapWidget,
+              SizedBox(
+                height: 50,
+              ),
+              Text(
+                'press if the algorithm \n should swap',
+                style: GoogleFonts.robotoFlex(
+                    fontWeight: FontWeight.bold, fontSize: 24),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              SizedBox(
+                width: 390,
+                height: 90,
+                child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(5),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          NormalFormNumber(number: "8"),
+                          NormalFormNumber(number: "23"),
+                          NormalFormNumber(number: "48"),
+                          swapWidgetReverse,
+                          swapWidget,
+                        ],
+                      ),
+                    )),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                width: 250,
+                height: 50,
+                child: RaisedButton(
+                  color: col,
+                  textColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  child: Text(
+                    'Swap',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      swap = !swap;
+                    });
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: 250,
+                height: 50,
+                child: RaisedButton(
+                  color: Palette.lightBlue2,
+                  textColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  child: Text(
+                    'Check',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onPressed: () {
+                    if (swap) {
+                      showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                                backgroundColor: Color(0xfbfbfbfb),
+                                title: Text("Good job"),
+                                content: Image.asset(
+                                  'assets/good.gif',
+                                  width: 200,
+                                  height: 200,
+                                ),
+                                actions: [
+                                  Column(
+                                    children: <Widget>[
+                                      Center(
+                                        child: RaisedButton(
+                                          color: col,
+                                          textColor: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(25.0),
+                                          ),
+                                          child: Text(
+                                            'Continue',
+                                            style: TextStyle(fontSize: 20),
+                                          ),
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                new MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Level1ePage(),
+                                                ));
+                                          },
+                                        ),
+                                      ),
+                                      AllBackButton(),
+                                    ],
+                                  )
+                                ],
+                              ));
+
+                      setState(() {
+                        final FirebaseAuth auth = FirebaseAuth.instance;
+                        final User user = auth.currentUser!;
+                        final uid = user.uid;
+                        FirebaseDatabase database = FirebaseDatabase.instance;
+                        DatabaseReference myRef =
+                            FirebaseDatabase.instance.ref("progress/user");
+                        var ref = myRef.child(uid);
+                        ref.update({
+                          "levelsInsertion": 4,
+                        });
+                        levelInsertion = 4;
+                      });
+                    } else {
+                      showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                                backgroundColor: Color(0xfbfbfbfb),
+                                title: Text("Try Again"),
+                                content: Image.asset(
+                                  'assets/tryAgain.gif',
+                                  width: 200,
+                                  height: 200,
+                                ),
+                                actions: [
+                                  Column(
+                                    children: <Widget>[
+                                      Center(
+                                        child: RaisedButton(
+                                          color: col,
+                                          textColor: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(25.0),
+                                          ),
+                                          child: Text(
+                                            'Try again',
+                                            style: TextStyle(fontSize: 20),
+                                          ),
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                new MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Level1dPage(),
+                                                ));
+                                          },
+                                        ),
+                                      ),
+                                      AllBackButton(),
+                                    ],
+                                  )
+                                ],
+                              ));
+                    }
+                  },
+                ),
+              )
             ],
           ),
-          Text("press if the algorithm should swap"),
-          buttonTile,
-          Visibility(
-            visible: isVisibleGood,
-            child: Lottie.network(
-                'https://assets3.lottiefiles.com/packages/lf20_wys2rrr6.json',
-                //  controller: _controller,
-                height: 200,
-                repeat: true),
-          ),
-          Visibility(
-            visible: isVisibleBad,
-            child: Lottie.network(
-                'https://assets2.lottiefiles.com/packages/lf20_2frpohrv.json',
-                // controller: _WrongController,
-                height: 200,
-                repeat: false),
-          ),
-          ElevatedButton(
-              onPressed: () {
-                if (swap) {
-                  setState(() {
-                    isVisibleGood = !isVisibleGood;
-                    isVisible = !isVisible;
-                  });
-                  setState(() {
-                    final FirebaseAuth auth = FirebaseAuth.instance;
-                    final User user = auth.currentUser!;
-                    final uid = user.uid;
-                    FirebaseDatabase database = FirebaseDatabase.instance;
-                    DatabaseReference myRef =
-                        FirebaseDatabase.instance.ref("progress/user");
-                    var ref = myRef.child(uid);
-                    ref.update({
-                      "levelsInsertion": 4,
-                    });
-                    levelInsertion = 4;
-                  });
-                } else {
-                  setState(() {
-                    isVisibleBad = !isVisibleBad;
-                    Future.delayed(const Duration(milliseconds: 250), () {
-                      isVisibleBad = !isVisibleBad;
-                    });
-                  });
-                }
-              },
-              child: Text('Check')),
-          Visibility(
-            visible: isVisible,
-            maintainSize: true,
-            maintainAnimation: true,
-            maintainState: true,
-            child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) => Level1ePage()));
-                },
-                child: Text('continue')),
-          ),
-          AllBackButton()
-        ],
-      ),
-    );
+        ));
   }
 }
