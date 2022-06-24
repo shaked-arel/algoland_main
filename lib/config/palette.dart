@@ -13,4 +13,5 @@ class Palette {
   static const Color orange2 = Color(0x3bf18700);
   static const Color blue2 = Color(0x340078bd);
   static const Color lightgray = Color(0xebd5d0d0);
+  static const Color green = Color.fromARGB(232, 103, 212, 99);
 }
