@@ -15,9 +15,6 @@ class DraggableNumbers extends StatelessWidget {
           FruitBox("14")
         ],
       ),
-      SizedBox(
-        height: 10,
-      ),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
