@@ -26,7 +26,7 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: 'Levels passing',
-    home: TodoScreen(
+    home: InsertionTodoScreen(
       levels: List.generate(
         11,
         (index) => Todo(
@@ -37,12 +37,12 @@ void main() {
   ));
 }
 
-class TodoScreen extends StatelessWidget {
+class InsertionTodoScreen extends StatelessWidget {
   final List<Todo> levels;
   final pass = Color.fromARGB(255, 194, 243, 162);
   final notPass = Color.fromARGB(255, 164, 235, 245);
 
-  TodoScreen({required this.levels});
+  InsertionTodoScreen({required this.levels});
 
   @override
   Widget build(BuildContext context) {

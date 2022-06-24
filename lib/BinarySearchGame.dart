@@ -1,18 +1,15 @@
+import 'package:binarysearch/config/palette.dart';
+import 'package:binarysearch/global.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'bubbleSortGame/level1/main.dart';
-import 'bubbleSortGame/level2/main.dart';
-import 'bubbleSortGame/level1b/level1b.dart';
-import 'bubbleSortGame/level1b/level1c.dart';
-import 'bubbleSortGame/level1b/level1d.dart';
-import 'bubbleSortGame/level2b/level2b.dart';
-import 'bubbleSortGame/level2b/level2c.dart';
-import 'bubbleSortGame/level2b/level2d.dart';
-import 'bubbleSortGame/level3/level3b.dart';
-import 'bubbleSortGame/level3/main.dart';
-import 'config/palette.dart';
-import 'normalNumber.dart';
-import 'global.dart';
+import 'BinarySearchGame/level1.dart';
+import 'BinarySearchGame/level1/level1b.dart';
+import 'BinarySearchGame/level1/level1c.dart';
+import 'BinarySearchGame/level1/level1d.dart';
+import 'BinarySearchGame/level2/level2.dart';
+import 'BinarySearchGame/level2/level2b.dart';
+import 'BinarySearchGame/level2/level2c.dart';
+import 'auth.dart';
 
 class Todo {
   final String title;
@@ -25,9 +22,9 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: 'Levels passing',
-    home: BubbleTodoScreen(
+    home: BinaryTodoScreen(
       levels: List.generate(
-        10,
+        7,
         (index) => Todo(
             title: 'Level ${index + 1} ',
             description: "description for level $index"),
@@ -36,12 +33,12 @@ void main() {
   ));
 }
 
-class BubbleTodoScreen extends StatelessWidget {
+class BinaryTodoScreen extends StatelessWidget {
   final List<Todo> levels;
   final pass = Color.fromARGB(255, 194, 243, 162);
   final notPass = Color.fromARGB(255, 164, 235, 245);
 
-  BubbleTodoScreen({required this.levels});
+  BinaryTodoScreen({required this.levels});
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +91,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 1
+                              child: levelBinary >= 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -158,7 +155,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 2
+                              child: levelBinary >= 2
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -222,7 +219,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 3
+                              child: levelBinary >= 3
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -286,7 +283,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 4
+                              child: levelBinary >= 4
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -350,7 +347,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 5
+                              child: levelBinary >= 5
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -414,7 +411,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 6
+                              child: levelBinary >= 6
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -478,7 +475,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 7
+                              child: levelBinary >= 7
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -514,198 +511,6 @@ class BubbleTodoScreen extends StatelessWidget {
                                         margin:
                                             const EdgeInsets.only(top: 17.0),
                                         child: Text('7',
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.robotoFlex(
-                                              color: Palette.darkBlue2,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 30,
-                                            )),
-                                      ))),
-                          backgroundColor: Colors.white,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment(0, -0.16),
-                      child: SizedBox(
-                        width: 70.0,
-                        height: 70.0,
-                        child: FloatingActionButton(
-                          heroTag: "8",
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LevelScreen(index: 7),
-                              ),
-                            );
-                          },
-                          child: IconTheme(
-                              data: new IconThemeData(),
-                              child: levelBubble >= 8
-                                  ? Container(
-                                      constraints: BoxConstraints.expand(),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                          image:
-                                              AssetImage('assets/complete.png'),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      child: Container(
-                                        margin:
-                                            const EdgeInsets.only(top: 17.0),
-                                        child: Text('8',
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.robotoFlex(
-                                              color: Palette.darkBlue2,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 30,
-                                            )),
-                                      ))
-                                  : Container(
-                                      constraints: BoxConstraints.expand(),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/not-complete.png'),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      child: Container(
-                                        margin:
-                                            const EdgeInsets.only(top: 17.0),
-                                        child: Text('8',
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.robotoFlex(
-                                              color: Palette.darkBlue2,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 30,
-                                            )),
-                                      ))),
-                          backgroundColor: Colors.white,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment(0.6, -0.16),
-                      child: SizedBox(
-                        width: 70.0,
-                        height: 70.0,
-                        child: FloatingActionButton(
-                          heroTag: "9",
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LevelScreen(index: 8),
-                              ),
-                            );
-                          },
-                          child: IconTheme(
-                              data: new IconThemeData(),
-                              child: levelBubble >= 9
-                                  ? Container(
-                                      constraints: BoxConstraints.expand(),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                          image:
-                                              AssetImage('assets/complete.png'),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      child: Container(
-                                        margin:
-                                            const EdgeInsets.only(top: 17.0),
-                                        child: Text('9',
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.robotoFlex(
-                                              color: Palette.darkBlue2,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 30,
-                                            )),
-                                      ))
-                                  : Container(
-                                      constraints: BoxConstraints.expand(),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/not-complete.png'),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      child: Container(
-                                        margin:
-                                            const EdgeInsets.only(top: 17.0),
-                                        child: Text('9',
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.robotoFlex(
-                                              color: Palette.darkBlue2,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 30,
-                                            )),
-                                      ))),
-                          backgroundColor: Colors.white,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment(-0.6, 0.16),
-                      child: SizedBox(
-                        width: 70.0,
-                        height: 70.0,
-                        child: FloatingActionButton(
-                          heroTag: "10",
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LevelScreen(index: 9),
-                              ),
-                            );
-                          },
-                          child: IconTheme(
-                              data: new IconThemeData(),
-                              child: levelBubble >= 10
-                                  ? Container(
-                                      constraints: BoxConstraints.expand(),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                          image:
-                                              AssetImage('assets/complete.png'),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      child: Container(
-                                        margin:
-                                            const EdgeInsets.only(top: 17.0),
-                                        child: Text('10',
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.robotoFlex(
-                                              color: Palette.darkBlue2,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 30,
-                                            )),
-                                      ))
-                                  : Container(
-                                      constraints: BoxConstraints.expand(),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/not-complete.png'),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      child: Container(
-                                        margin:
-                                            const EdgeInsets.only(top: 17.0),
-                                        child: Text('10',
                                             textAlign: TextAlign.center,
                                             style: GoogleFonts.robotoFlex(
                                               color: Palette.darkBlue2,
@@ -721,43 +526,47 @@ class BubbleTodoScreen extends StatelessWidget {
                 ))));
   }
 }
-
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text("Levels"),
-//         leading: IconButton(
-//           icon: Icon(Icons.arrow_back_ios),
-//           color: Colors.white,
-//           onPressed: () {
-//             Navigator.pop(context);
-//           },
-//         ),),
-//       body: ListView.builder(
-//         itemCount: levels.length,
-//         itemBuilder: (context, index) {
-//           return ListTile(
-//             title: Text(levels[index].title),
-//             tileColor: index < levelBubble ? pass : notPass,
-//             onTap: () {
-//               Navigator.push(
-//                 context,
-//                 MaterialPageRoute(
-//                   builder: (context) => LevelScreen(index: index),
-//                 ),
-//               );
-//             },
+// return Scaffold(
+//   appBar: AppBar(
+//     backgroundColor: Colors.white12,
+//     elevation: 0,
+//     title: Text("Levels",
+//       style: GoogleFonts.robotoFlex(color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
+//     centerTitle: true,
+//     leading: IconButton(
+//       icon: Icon(Icons.arrow_back_ios),
+//       color: Palette.darkBlue2,
+//       onPressed: () {
+//         Navigator.pop(context);
+//       },
+//     ),
+//   ),
+//   body: ListView.builder(
+//     itemCount: levels.length,
+//     itemBuilder: (context, index) {
+//       return ListTile(
+//         title: Text(levels[index].title),
+//         tileColor: index < levelBinary ? pass : notPass,
+//         onTap: () {
+//           Navigator.push(
+//             context,
+//             MaterialPageRoute(
+//               builder: (context) => LevelScreen(index: index),
+//             ),
 //           );
 //         },
-//       ),
-//     );
-//   }
-// }
+//       );
+//     },
+//   ),
+// );
+//  }
+//}
 
 class LevelScreen extends StatelessWidget {
   final int index;
 
   LevelScreen({required this.index});
+
   @override
   Widget build(BuildContext context) {
     switch (index) {
@@ -775,17 +584,21 @@ class LevelScreen extends StatelessWidget {
         return Level2bPage();
       case 6:
         return Level2cPage();
-      case 7:
-        return Level2dPage();
-      case 8:
-        return DragScreen();
-      case 9:
-        return DragScreen2();
       default:
         return Scaffold();
     }
   }
 }
+
+// child: IconTheme(
+// data: new IconThemeData(
+// color: Colors.blue,
+// ),
+// //child: new Icon(Icons.arrow_forward),
+// child: Text('1', style: TextStyle(color: Colors.blue)),
+// ),
+// backgroundColor: Colors.white,
+// ),
 
 class DetailScreen extends StatelessWidget {
   final Todo level;

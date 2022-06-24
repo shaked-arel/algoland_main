@@ -14,21 +14,23 @@ class BubbleSortSimulation extends StatelessWidget {
       title: 'Algorithms',
       debugShowCheckedModeBanner: false,
       // showPerformanceOverlay: true,
-      home: Scaffold(appBar: AppBar(
-        elevation: 0,
-        title: Text('Simulation', style: GoogleFonts.robotoFlex(
-            color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
-        centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          color: Palette.darkBlue2,
-          onPressed: () {
-            Navigator.pop(context);
-          },
+      home: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          title: Text('Simulation',
+              style: GoogleFonts.robotoFlex(
+                  color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
+          centerTitle: true,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            color: Palette.darkBlue2,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          backgroundColor: Colors.white, // appbar color.
+          foregroundColor: Palette.darkBlue2, // appbar text color.
         ),
-        backgroundColor: Colors.white, // appbar color.
-        foregroundColor: Palette.darkBlue2, // appbar text color.
-      ),
         body: MultiProvider(
           providers: [
             ChangeNotifierProvider(
@@ -43,4 +45,3 @@ class BubbleSortSimulation extends StatelessWidget {
     );
   }
 }
-

@@ -37,30 +37,43 @@ class BinarySearchTransition extends StatelessWidget {
                 shape: const ContinuousRectangleBorder(
                   borderRadius: const BorderRadius.only(),
                 ),
-                child: Image.asset('assets/popup.png', width: 200,),
+                child: Image.asset(
+                  'assets/popup.png',
+                  width: 200,
+                ),
                 onPressed: () {
                   showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
-                      backgroundColor: Color(0xfbfbfbfb),
-                  title: Text('Binary Search algorithm', style: GoogleFonts.robotoFlex(color: Palette.orange, fontWeight: FontWeight.bold),),
-                  content:
-                      Container(
-                        width: 200,
-                        height: 252,
-                        child: Column(
-                          children: <Widget>[
-                            Text( 'Binary Search works by repeatedly dividing in half the portion'
-                                ' of the list that could contain the item,'
-                                ' until you have narrowed down the possible locations to just one.', style: GoogleFonts.robotoFlex(fontSize: 18),),
-                            SizedBox(height: 13,),
-                            Align(alignment: Alignment.bottomCenter,
-                                child: Image.asset(
-                                "assets/dialog.png"),),
-                          ],
-                            )
-                      ),
-                      ));
+                            backgroundColor: Color(0xfbfbfbfb),
+                            title: Text(
+                              'Binary Search algorithm',
+                              style: GoogleFonts.robotoFlex(
+                                  color: Palette.orange,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            content: Container(
+                                width: 200,
+                                height: 252,
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      'Binary Search works by repeatedly dividing in half the portion'
+                                      ' of the list that could contain the item,'
+                                      ' until you have narrowed down the possible locations to just one.',
+                                      style:
+                                          GoogleFonts.robotoFlex(fontSize: 18),
+                                    ),
+                                    SizedBox(
+                                      height: 13,
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomCenter,
+                                      child: Image.asset("assets/dialog.png"),
+                                    ),
+                                  ],
+                                )),
+                          ));
                 },
               ),
             ),
@@ -122,7 +135,7 @@ class BinarySearchTransition extends StatelessWidget {
                     Navigator.push(
                         context,
                         new MaterialPageRoute(
-                            builder: (context) => TodoScreen(
+                            builder: (context) => BinaryTodoScreen(
                                   levels: List.generate(
                                     7,
                                     (index) => Todo(

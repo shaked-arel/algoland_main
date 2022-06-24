@@ -1,4 +1,4 @@
-import 'package:binarysearch/config/palette.dart';
+import '../config/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -11,7 +11,11 @@ class Quiz extends StatelessWidget {
   final int index;
   final int score;
 
-  Quiz({required this.handler, required this.questions, required this.index,required this.score});
+  Quiz(
+      {required this.handler,
+      required this.questions,
+      required this.index,
+      required this.score});
 
   @override
   Widget build(BuildContext context) {
@@ -20,21 +24,20 @@ class Quiz extends StatelessWidget {
       children: [
         Column(
           children: [
-        SizedBox(height: 15),
-        Align(
-          alignment: Alignment.center,
-          child: CircularPercentIndicator(
-            radius: 60,
-            percent: index*20 / 100,
-            lineWidth: 6,
-            backgroundColor: Palette.lightgray,
-            progressColor: Palette.yellow,
-            center: new Text(index.toString() + '/' + '5',
-                style: GoogleFonts.robotoFlex(
-                    fontWeight: FontWeight.bold,
-                    color: Palette.yellow)),
-          ),
-        ),
+            SizedBox(height: 15),
+            Align(
+              alignment: Alignment.center,
+              child: CircularPercentIndicator(
+                radius: 60,
+                percent: index * 20 / 100,
+                lineWidth: 6,
+                backgroundColor: Palette.lightgray,
+                progressColor: Palette.yellow,
+                center: new Text(index.toString() + '/' + '5',
+                    style: GoogleFonts.robotoFlex(
+                        fontWeight: FontWeight.bold, color: Palette.yellow)),
+              ),
+            ),
             Question(
               questions[index]['question'] as String,
             ),
@@ -48,7 +51,8 @@ class Quiz extends StatelessWidget {
                     (answer['ans'] as String), Colors.red);
               }
             }).toList(),
-          ],),
+          ],
+        ),
         ...(questions[index]['answers'] as List<Map<String, Object>>)
             .map((answer) {
           if (score == 1) {

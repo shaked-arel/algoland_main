@@ -48,37 +48,43 @@ class SortPage<T extends SortProvider> extends StatelessWidget {
               )),
           //Buttons(),
           SizedBox(
-            height: 10,
+            height: 20,
           ),
           Align(alignment: Alignment.bottomCenter, child: Speed()),
+          SizedBox(height: 10),
           Align(alignment: Alignment.bottomCenter, child: SortButton()),
           //Align(
           //alignment: Alignme,
+          SizedBox(
+            height: 20,
+          ),
           Stack(children: <Widget>[
             Align(
-              alignment: Alignment.bottomCenter,
-              child: Image.asset('assets/board.png', width: 250),
+              alignment: Alignment(0.5, 0),
+              child: Image.asset('assets/board.png', width: 260),
             ),
             Align(
-              alignment: Alignment(-1, 0),
+              alignment: Alignment(-0.8, 0),
               child: Image.asset('assets/teach.png', width: 120),
             ),
-            Align(
-                alignment: Alignment.bottomRight,
-                child: Container(
-                    width: 300,
-                    height: 120,
-                    child: Align(
-                        //alignment: Alignment.bottomRig,
-                        child: Text(
-                          '   Remember! \r\n \r\n'
-                          '   The time complexity \r\n'
-                              '   is O(n^2).',
-                          style: GoogleFonts.robotoFlex(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        )))),
+            Center(
+              child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: Container(
+                      width: 330,
+                      height: 120,
+                      child: Align(
+                          //alignment: Alignment.bottomRig,
+                          child: Text(
+                        '   Remember! \r\n \r\n'
+                        '   The time complexity \r\n'
+                        '   is O(n^2).',
+                        style: GoogleFonts.robotoFlex(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      )))),
+            ),
           ]),
         ],
       );

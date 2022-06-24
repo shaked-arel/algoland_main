@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'config/palette.dart';
 
-
 class SortButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,23 +16,24 @@ class SortButton extends StatelessWidget {
               width: 180,
               height: 40,
               child: ElevatedButton(
-              child: child,
-              //color: Palette.lightBlue2,
-              //disabledColor: Colors.grey,
-              style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Palette.lightBlue2),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
-          )
-          )),
-            onPressed: sorted
-                ? null
-                : () {
-                    Provider.of<InsertionSortProvider>(context, listen: false)
-                        .sort();
-                  },
-          ));
+                child: child,
+                //color: Palette.lightBlue2,
+                //disabledColor: Colors.grey,
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Palette.lightBlue2),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ))),
+                onPressed: sorted
+                    ? null
+                    : () {
+                        Provider.of<InsertionSortProvider>(context,
+                                listen: false)
+                            .sort();
+                      },
+              ));
         },
         child: Text(
           "Sort",

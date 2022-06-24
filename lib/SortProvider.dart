@@ -64,10 +64,6 @@ class SortProvider extends BaseProvider {
     numbers[i].sorted();
   }
 
-  void PivotNode(int i) {
-    numbers[i].pivot();
-  }
-
   void StateToSorted() {
     _isSorted = true;
     _isSorting = false;

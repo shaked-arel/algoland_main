@@ -35,6 +35,7 @@ class InsertionSortProvider extends SortProvider {
     //count++;
     //}
     //SortedNodes(0, num.length - 1 - count);
+    SortedNodes(0, num.length - 1);
     StateToSorted();
     notifyListeners();
   }

@@ -110,8 +110,26 @@ class AuthGate extends StatelessWidget {
     levelBinary = await getLev3();
   }
 
+  void set() async {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final User user = auth.currentUser!;
+    final uid = user.uid;
+    FirebaseDatabase database = FirebaseDatabase.instance;
+    DatabaseReference myRef = FirebaseDatabase.instance.ref("progress/user");
+    var ref = myRef.child(uid);
+    ref.update({
+      "bubble": 0,
+      "binary": 0,
+      "insertion": 0,
+      "levelsBubble": 0,
+      "levelsBinary": 0,
+      "levelsInsertion": 0,
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    bool firstUse = false;
     return StreamBuilder<User?>(
       stream: FirebaseAuth.instance.authStateChanges(),
       // If the user is already signed-in, use it as initial data
@@ -119,6 +137,7 @@ class AuthGate extends StatelessWidget {
       builder: (context, snapshot) {
         // User is not signed in
         if (!snapshot.hasData) {
+          firstUse = true;
           return SignInScreen(
             providerConfigs: [
               EmailProviderConfiguration(),
@@ -126,6 +145,9 @@ class AuthGate extends StatelessWidget {
           );
         } else {
           get();
+        }
+        if (firstUse) {
+          set();
         }
         // Render your application if authenticated
         return Algorithms();

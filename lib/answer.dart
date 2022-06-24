@@ -23,9 +23,12 @@ class ColorChange extends State<Answer> {
         color: col,
         textColor: Colors.white,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(18.0),
+          borderRadius: BorderRadius.circular(18.0),
         ),
-        child: Text(widget.answerText, style: TextStyle(fontSize: 16),),
+        child: Text(
+          widget.answerText,
+          style: TextStyle(fontSize: 16),
+        ),
         onPressed: () {
           setState(() => col = widget.color);
           Future.delayed(const Duration(milliseconds: 250), () {

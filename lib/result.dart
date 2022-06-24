@@ -18,10 +18,10 @@ class Result extends StatelessWidget {
     String resultText;
     resultText = '';
     //+
-        // resultScore.toString() +
-        // '/' +
-        // numOfQuestions.toString() +
-        // ' correct answers';
+    // resultScore.toString() +
+    // '/' +
+    // numOfQuestions.toString() +
+    // ' correct answers';
     if (resultScore < numOfQuestions) {
       resultText += "\r\n" "\r\n" 'Try again!';
     } else {
@@ -33,23 +33,35 @@ class Result extends StatelessWidget {
     FirebaseDatabase database = FirebaseDatabase.instance;
     DatabaseReference myRef = FirebaseDatabase.instance.ref("progress/user");
     var ref = myRef.child(uid);
-    ref.update({
-      name: (resultScore * 20),
-    });
     switch (name) {
       case "bubble":
         {
-          precentBubble = resultScore * 20;
+          if (precentBubble < resultScore * 20) {
+            ref.update({
+              "bubble": (resultScore * 20),
+            });
+            precentBubble = resultScore * 20;
+          }
           break;
         }
       case "insertion":
         {
-          precentInsertion = resultScore * 20;
+          if (precentInsertion < resultScore * 20) {
+            ref.update({
+              "insertion": (resultScore * 20),
+            });
+            precentInsertion = resultScore * 20;
+          }
           break;
         }
       case "binary":
         {
-          precentBinary = resultScore * 20;
+          if (precentBinary < resultScore * 20) {
+            ref.update({
+              "binary": (resultScore * 20),
+            });
+            precentBinary = resultScore * 20;
+          }
           break;
         }
     }
@@ -60,34 +72,45 @@ class Result extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(children: <Widget>[
-        SizedBox(height: 40,),
-      Text('You were able to answer ', style: GoogleFonts.robotoFlex(
-          fontSize: 25, fontWeight: FontWeight.bold
-      ),),
-        SizedBox(height: 40,),
-      Align(
-      alignment: Alignment.center,
-      child: CircularPercentIndicator(
-        radius: 90,
-        percent: resultScore*20 / 100,
-        lineWidth: 6,
-        backgroundColor: Palette.lightgray,
-        progressColor: Palette.yellow,
-        center: new Text(resultScore.toString()+ '/' + '5',
-            style: GoogleFonts.robotoFlex(
-                fontWeight: FontWeight.bold, fontSize: 25,
-                color: Palette.yellow)),
-      ),
+        SizedBox(
+          height: 40,
+        ),
+        Text(
+          'You were able to answer ',
+          style:
+              GoogleFonts.robotoFlex(fontSize: 25, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(
+          height: 40,
+        ),
+        Align(
+          alignment: Alignment.center,
+          child: CircularPercentIndicator(
+            radius: 90,
+            percent: resultScore * 20 / 100,
+            lineWidth: 6,
+            backgroundColor: Palette.lightgray,
+            progressColor: Palette.yellow,
+            center: new Text(resultScore.toString() + '/' + '5',
+                style: GoogleFonts.robotoFlex(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: Palette.yellow)),
+          ),
         ),
         Text(
           resultPhrase,
-          style: GoogleFonts.robotoFlex(fontSize: 25, fontWeight: FontWeight.bold),
+          style:
+              GoogleFonts.robotoFlex(fontSize: 25, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
-        SizedBox(height: 30,),
+        SizedBox(
+          height: 30,
+        ),
         FlatButton(
           onPressed: reset,
-          child: Text('restart Quiz', style: GoogleFonts.robotoFlex(fontSize: 18)),
+          child:
+              Text('restart Quiz', style: GoogleFonts.robotoFlex(fontSize: 18)),
           textColor: Palette.darkBlue2,
         )
       ]),

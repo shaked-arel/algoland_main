@@ -55,15 +55,16 @@ class _SearchState<BinartSearchProvider extends SearchProvider>
                 width: 150,
                 height: 40,
                 child: ElevatedButton(
-                child: child,
-                style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0),),
-                  primary: Palette.lightBlue2,
-            ),
-              onPressed: isSearching ? null : _search,
-              //child: child,
-            ));
+                  child: child,
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    primary: Palette.lightBlue2,
+                  ),
+                  onPressed: isSearching ? null : _search,
+                  //child: child,
+                ));
           },
           child: const Text('Search', style: TextStyle(color: Colors.white)),
         )

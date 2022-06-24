@@ -14,8 +14,9 @@ class Algorithms extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           elevation: 0,
-          title: Text('Algoland', style: GoogleFonts.robotoFlex(
-                color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
+          title: Text('Algoland',
+              style: GoogleFonts.robotoFlex(
+                  color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios),

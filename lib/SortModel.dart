@@ -1,3 +1,4 @@
+import 'package:binarysearch/config/palette.dart';
 import 'package:flutter/material.dart';
 
 enum SortState {
@@ -25,16 +26,11 @@ class SortModel {
 
   void sort() {
     state = SortState.sort;
-    color = Colors.cyan;
+    color = Palette.darkBlue2;
   }
 
   void sorted() {
     state = SortState.sorted;
-    color = Colors.orange;
-  }
-
-  void pivot() {
-    state = SortState.pivot;
-    color = Colors.pink;
+    color = Palette.orange;
   }
 }

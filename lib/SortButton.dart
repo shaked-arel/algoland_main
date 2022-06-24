@@ -20,12 +20,14 @@ class SortButton extends StatelessWidget {
               child: ElevatedButton(
                 child: child,
                 style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
                   primary: Palette.lightBlue2,
-                //primary: _hasBeenPressed ? Colors.grey : Palette.lightBlue2,
-              ),
-                onPressed: sorted? null
+                  //primary: _hasBeenPressed ? Colors.grey : Palette.lightBlue2,
+                ),
+                onPressed: sorted
+                    ? null
                     : () {
                         Provider.of<BubbleSortProvider>(context, listen: false)
                             .sort();

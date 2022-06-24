@@ -40,36 +40,37 @@ class SearchPage<T extends SearchProvider> extends StatelessWidget {
             SearchSpeed(),
             Search(),
 
-
             const SizedBox(height: 70),
             Stack(children: <Widget>[
               Align(
-                alignment: Alignment(0.2,0.5),
+                alignment: Alignment(0.3, 0.5),
                 child: Image.asset('assets/board.png', width: 210),
               ),
               Align(
-                alignment: Alignment(-0.8, 0.5),
+                alignment: Alignment(-0.6, 0.5),
                 child: Image.asset('assets/teach.png', width: 80),
               ),
               Align(
                   alignment: Alignment.bottomRight,
                   child: Container(
-                      width: 300,
+                      width: 310,
                       height: 120,
-                      child:
-                      Align(
-                        //alignment: Alignment.bottomRight,
+                      child: Align(
+                          //alignment: Alignment.bottomRight,
                           child: Text(
-                            'Remember! \r\n \r\n'
-                                'The time complexity \r\n'
-                                'is O(log n).',
-                            style: GoogleFonts.robotoFlex(color: Colors.black, fontWeight: FontWeight.bold,
-                                fontSize: 18),
-                          )))),
+                        'Remember! \r\n \r\n'
+                        'The time complexity \r\n'
+                        'is O(log n).',
+                        style: GoogleFonts.robotoFlex(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      )))),
             ]),
 
             //const SizedBox(height: 24),
-          ],),
+          ],
+        ),
         SearchIndicator(
           parentKey: key,
         ),

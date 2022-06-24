@@ -1,3 +1,6 @@
+import 'package:binarysearch/BinarySearchGame.dart';
+import 'package:binarysearch/BubbleSortGame.dart';
+import 'package:binarysearch/InsertionSortGame.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -20,11 +23,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
+        //  /*
+        initialRoute: "/home",
+        routes: {
+          "/home": (context) => HomePage(),
+          "/levelsBubble": (context) => BubbleTodoScreen(
+                levels: [],
+              ),
+          "/levelsBinary": (context) => BinaryTodoScreen(levels: []),
+          "/levelsInsertion": (context) => InsertionTodoScreen(levels: [])
+        },
+        //*/
         home: HomePage());
   }
 }

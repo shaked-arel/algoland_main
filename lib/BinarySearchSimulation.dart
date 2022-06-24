@@ -16,8 +16,9 @@ class BinarySearchSimulation extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          title: Text('Simulation', style: GoogleFonts.robotoFlex(
-              color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
+          title: Text('Simulation',
+              style: GoogleFonts.robotoFlex(
+                  color: Palette.darkBlue2, fontWeight: FontWeight.bold)),
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios),
@@ -30,17 +31,15 @@ class BinarySearchSimulation extends StatelessWidget {
           foregroundColor: Palette.darkBlue2, // appbar text color.
         ),
         body: MultiProvider(
-          providers: [
-            ChangeNotifierProvider(
-              create: (_) => BinarySearchProvider(),
-            ),
-          ],
-              child: SearchPage(
-            title: '',
-          )),
-        ),
+            providers: [
+              ChangeNotifierProvider(
+                create: (_) => BinarySearchProvider(),
+              ),
+            ],
+            child: SearchPage(
+              title: '',
+            )),
+      ),
     );
   }
 }
-
-

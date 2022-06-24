@@ -37,31 +37,44 @@ class InsertionSortTransition extends StatelessWidget {
                 shape: const ContinuousRectangleBorder(
                   borderRadius: const BorderRadius.only(),
                 ),
-                child: Image.asset('assets/popup.png', width: 200,),
+                child: Image.asset(
+                  'assets/popup.png',
+                  width: 200,
+                ),
                 onPressed: () {
                   showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
-                        backgroundColor: Color(0xfbfbfbfb),
-                        title: Text('Insertion Sort algorithm', style: GoogleFonts.robotoFlex(color: Palette.orange, fontWeight: FontWeight.bold),),
-                        content:
-                        Container(
-                            width: 200,
-                            height: 295,
-                            child: Column(
-                              children: <Widget>[
-                                Text('In an insertion sort, each element in the array is checked with the'
-                                    ' previous elements. '
-                                    'The sorting algorithm removes one element at a time and finds'
-                                    ' the appropriate location within the sorted array, and inserts it there.', style: GoogleFonts.robotoFlex(fontSize: 18),),
-                                SizedBox(height: 13,),
-                                Align(alignment: Alignment.bottomCenter,
-                                  child: Image.asset(
-                                      "assets/dialog.png"),),
-                              ],
-                            )
-                        ),
-                      ));
+                            backgroundColor: Color(0xfbfbfbfb),
+                            title: Text(
+                              'Insertion Sort algorithm',
+                              style: GoogleFonts.robotoFlex(
+                                  color: Palette.orange,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            content: Container(
+                                width: 200,
+                                height: 295,
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      'In an insertion sort, each element in the array is checked with the'
+                                      ' previous elements. '
+                                      'The sorting algorithm removes one element at a time and finds'
+                                      ' the appropriate location within the sorted array, and inserts it there.',
+                                      style:
+                                          GoogleFonts.robotoFlex(fontSize: 18),
+                                    ),
+                                    SizedBox(
+                                      height: 13,
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomCenter,
+                                      child: Image.asset("assets/dialog.png"),
+                                    ),
+                                  ],
+                                )),
+                          ));
                 },
               ),
               // child: Material(
@@ -145,7 +158,7 @@ class InsertionSortTransition extends StatelessWidget {
                     Navigator.push(
                         context,
                         new MaterialPageRoute(
-                            builder: (context) => TodoScreen(
+                            builder: (context) => InsertionTodoScreen(
                                   levels: List.generate(
                                     10,
                                     (index) => Todo(
