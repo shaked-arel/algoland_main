@@ -208,11 +208,11 @@ class _Level1cState extends State<Level1cPage> with TickerProviderStateMixin {
                         FirebaseDatabase database = FirebaseDatabase.instance;
                         DatabaseReference myRef =
                             FirebaseDatabase.instance.ref("progress/user");
-                        var ref = myRef.child(uid);
+                        var ref = myRef.child(uid).child("levelsInsertion");
                         ref.update({
-                          "levelsInsertion": 3,
+                          "2": 1,
                         });
-                        levelInsertion = 3;
+                        levelsInsertion[2] = 1;
                       });
                     } else {
                       showDialog(

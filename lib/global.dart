@@ -2,6 +2,6 @@ int precentBubble = 0;
 int precentInsertion = 0;
 int precentBinary = 0;
 
-int levelBubble = 0;
-int levelInsertion = 0;
-int levelBinary = 0;
+List<int> levelsBubble = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+List<int> levelsBinary = [0, 0, 0, 0, 0, 0, 0];
+List<int> levelsInsertion = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];

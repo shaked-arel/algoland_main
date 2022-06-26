@@ -94,7 +94,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 1
+                              child: levelsBubble[0] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -158,7 +158,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 2
+                              child: levelsBubble[1] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -222,7 +222,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 3
+                              child: levelsBubble[2] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -286,7 +286,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 4
+                              child: levelsBubble[3] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -350,7 +350,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 5
+                              child: levelsBubble[4] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -414,7 +414,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 6
+                              child: levelsBubble[5] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -478,7 +478,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 7
+                              child: levelsBubble[6] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -542,7 +542,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 8
+                              child: levelsBubble[7] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -606,7 +606,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 9
+                              child: levelsBubble[8] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -670,7 +670,7 @@ class BubbleTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBubble >= 10
+                              child: levelsBubble[9] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -721,38 +721,6 @@ class BubbleTodoScreen extends StatelessWidget {
                 ))));
   }
 }
-
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text("Levels"),
-//         leading: IconButton(
-//           icon: Icon(Icons.arrow_back_ios),
-//           color: Colors.white,
-//           onPressed: () {
-//             Navigator.pop(context);
-//           },
-//         ),),
-//       body: ListView.builder(
-//         itemCount: levels.length,
-//         itemBuilder: (context, index) {
-//           return ListTile(
-//             title: Text(levels[index].title),
-//             tileColor: index < levelBubble ? pass : notPass,
-//             onTap: () {
-//               Navigator.push(
-//                 context,
-//                 MaterialPageRoute(
-//                   builder: (context) => LevelScreen(index: index),
-//                 ),
-//               );
-//             },
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
 
 class LevelScreen extends StatelessWidget {
   final int index;

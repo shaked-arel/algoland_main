@@ -279,11 +279,11 @@ class _Level2dState extends State<Level2dPage> with TickerProviderStateMixin {
                     FirebaseDatabase database = FirebaseDatabase.instance;
                     DatabaseReference myRef =
                         FirebaseDatabase.instance.ref("progress/user");
-                    var ref = myRef.child(uid);
+                    var ref = myRef.child(uid).child("levelsInsertion");
                     ref.update({
-                      "levelsInsertion": 9,
+                      "8": 1,
                     });
-                    levelInsertion = 9;
+                    levelsInsertion[8] = 1;
                   });
                 } else {
                   showDialog(

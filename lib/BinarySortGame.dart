@@ -91,7 +91,7 @@ class TodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBinary >= 1
+                              child: levelsBinary[0] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -155,7 +155,7 @@ class TodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBinary >= 2
+                              child: levelsBinary[1] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -219,7 +219,7 @@ class TodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBinary >= 3
+                              child: levelsBinary[2] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -283,7 +283,7 @@ class TodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBinary >= 4
+                              child: levelsBinary[3] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -347,7 +347,7 @@ class TodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBinary >= 5
+                              child: levelsBinary[4] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -411,7 +411,7 @@ class TodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBinary >= 6
+                              child: levelsBinary[5] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -475,7 +475,7 @@ class TodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelBinary >= 7
+                              child: levelsBinary[6] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(

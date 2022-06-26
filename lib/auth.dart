@@ -56,46 +56,58 @@ class AuthGate extends StatelessWidget {
     }
   }
 
-  Future<int> getLev1() async {
+  Future<List<int>> getLev1() async {
     try {
       final snapshot = await databaseRef
           .child(FirebaseAuth.instance.currentUser!.uid)
           .child("levelsBubble")
           .get();
       print(snapshot.value);
-      int num = int.parse(snapshot.value.toString());
-      assert(num is int);
-      return num;
+      List<int> lev = [];
+      snapshot.children.forEach((child) {
+        int num = int.parse(child.value.toString());
+        assert(num is int);
+        lev.add(num);
+      });
+      return lev;
     } catch (err) {
       rethrow;
     }
   }
 
-  Future<int> getLev2() async {
+  Future<List<int>> getLev2() async {
     try {
       final snapshot = await databaseRef
           .child(FirebaseAuth.instance.currentUser!.uid)
           .child("levelsInsertion")
           .get();
       print(snapshot.value);
-      int num = int.parse(snapshot.value.toString());
-      assert(num is int);
-      return num;
+      List<int> lev = [];
+      snapshot.children.forEach((child) {
+        int num = int.parse(child.value.toString());
+        assert(num is int);
+        lev.add(num);
+      });
+      return lev;
     } catch (err) {
       rethrow;
     }
   }
 
-  Future<int> getLev3() async {
+  Future<List<int>> getLev3() async {
     try {
       final snapshot = await databaseRef
           .child(FirebaseAuth.instance.currentUser!.uid)
           .child("levelsBinary")
           .get();
       print(snapshot.value);
-      int num = int.parse(snapshot.value.toString());
-      assert(num is int);
-      return num;
+      List<int> lev = [];
+      snapshot.children.forEach((child) {
+        int num = int.parse(child.value.toString());
+        assert(num is int);
+        lev.add(num);
+      });
+      return lev;
     } catch (err) {
       rethrow;
     }
@@ -105,9 +117,9 @@ class AuthGate extends StatelessWidget {
     precentBubble = await getPer1();
     precentInsertion = await getPer2();
     precentBinary = await getPer3();
-    levelBubble = await getLev1();
-    levelInsertion = await getLev2();
-    levelBinary = await getLev3();
+    levelsBubble = await getLev1();
+    levelsInsertion = await getLev2();
+    levelsBinary = await getLev3();
   }
 
   void set() async {
@@ -121,9 +133,9 @@ class AuthGate extends StatelessWidget {
       "bubble": 0,
       "binary": 0,
       "insertion": 0,
-      "levelsBubble": 0,
-      "levelsBinary": 0,
-      "levelsInsertion": 0,
+      "levelsBubble": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "levelsBinary": [0, 0, 0, 0, 0, 0, 0],
+      "levelsInsertion": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     });
   }
 

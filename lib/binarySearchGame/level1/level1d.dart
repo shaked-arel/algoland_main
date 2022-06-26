@@ -181,11 +181,11 @@ class _Level1dPageState extends State<Level1dPage>
                         FirebaseDatabase database = FirebaseDatabase.instance;
                         DatabaseReference myRef =
                             FirebaseDatabase.instance.ref("progress/user");
-                        var ref = myRef.child(uid);
+                        var ref = myRef.child(uid).child("levelsBinary");
                         ref.update({
-                          "levelsBinary": 4,
+                          "3": 1,
                         });
-                        levelBinary = 4;
+                        levelsBinary[3] = 1;
                       });
                     },
                   ),

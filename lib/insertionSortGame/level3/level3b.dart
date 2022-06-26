@@ -105,11 +105,11 @@ class _DragScreen2State extends State<DragScreen2>
             FirebaseDatabase database = FirebaseDatabase.instance;
             DatabaseReference myRef =
                 FirebaseDatabase.instance.ref("progress/user");
-            var ref = myRef.child(uid);
+            var ref = myRef.child(uid).child("levelsInsertion");
             ref.update({
-              "levelsInsertion": 11,
+              "10": 1,
             });
-            levelInsertion = 11;
+            levelsInsertion[10] = 1;
           }
         });
         //sound affects goes here

@@ -275,11 +275,11 @@ class _Level2PageState extends State<Level2Page> {
                     FirebaseDatabase database = FirebaseDatabase.instance;
                     DatabaseReference myRef =
                         FirebaseDatabase.instance.ref("progress/user");
-                    var ref = myRef.child(uid);
+                    var ref = myRef.child(uid).child("levelsBinary");
                     ref.update({
-                      "levelsBinary": 5,
+                      "4": 1,
                     });
-                    levelBinary = 5;
+                    levelsBinary[4] = 1;
                   });
                 } else {
                   showDialog(

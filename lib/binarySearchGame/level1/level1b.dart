@@ -172,19 +172,6 @@ class _Level1bPageState extends State<Level1bPage>
                                   )
                                 ],
                               ));
-                      setState(() {
-                        final FirebaseAuth auth = FirebaseAuth.instance;
-                        final User user = auth.currentUser!;
-                        final uid = user.uid;
-                        FirebaseDatabase database = FirebaseDatabase.instance;
-                        DatabaseReference myRef =
-                            FirebaseDatabase.instance.ref("progress/user");
-                        var ref = myRef.child(uid);
-                        ref.update({
-                          "levelsBinary": 2,
-                        });
-                        levelBinary = 2;
-                      });
                     },
                   ),
                 ),
@@ -245,6 +232,19 @@ class _Level1bPageState extends State<Level1bPage>
                                   )
                                 ],
                               ));
+                      setState(() {
+                        final FirebaseAuth auth = FirebaseAuth.instance;
+                        final User user = auth.currentUser!;
+                        final uid = user.uid;
+                        FirebaseDatabase database = FirebaseDatabase.instance;
+                        DatabaseReference myRef =
+                            FirebaseDatabase.instance.ref("progress/user");
+                        var ref = myRef.child(uid).child("levelsBinary");
+                        ref.update({
+                          "1": 1,
+                        });
+                        levelsBinary[1] = 1;
+                      });
                     },
                   ),
                 ),

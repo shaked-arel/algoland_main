@@ -119,11 +119,11 @@ class _DragScreenState extends State<DragScreen> with TickerProviderStateMixin {
             FirebaseDatabase database = FirebaseDatabase.instance;
             DatabaseReference myRef =
                 FirebaseDatabase.instance.ref("progress/user");
-            var ref = myRef.child(uid);
+            var ref = myRef.child(uid).child("levelsBubble");
             ref.update({
-              "levelsBubble": 9,
+              "8": 1,
             });
-            levelBubble = 9;
+            levelsBubble[8] = 1;
           }
         });
         //sound affects goes here

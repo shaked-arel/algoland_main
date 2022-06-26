@@ -95,7 +95,7 @@ class InsertionTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelInsertion >= 1
+                              child: levelsInsertion[0] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -159,7 +159,7 @@ class InsertionTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelInsertion >= 2
+                              child: levelsInsertion[1] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -223,7 +223,7 @@ class InsertionTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelInsertion >= 3
+                              child: levelsInsertion[2] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -287,7 +287,7 @@ class InsertionTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelInsertion >= 4
+                              child: levelsInsertion[3] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -351,7 +351,7 @@ class InsertionTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelInsertion >= 5
+                              child: levelsInsertion[4] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -415,7 +415,7 @@ class InsertionTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelInsertion >= 6
+                              child: levelsInsertion[5] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -479,7 +479,7 @@ class InsertionTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelInsertion >= 7
+                              child: levelsInsertion[6] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -543,7 +543,7 @@ class InsertionTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelInsertion >= 8
+                              child: levelsInsertion[7] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -607,7 +607,7 @@ class InsertionTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelInsertion >= 9
+                              child: levelsInsertion[8] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -671,7 +671,7 @@ class InsertionTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelInsertion >= 10
+                              child: levelsInsertion[9] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
@@ -735,7 +735,7 @@ class InsertionTodoScreen extends StatelessWidget {
                           },
                           child: IconTheme(
                               data: new IconThemeData(),
-                              child: levelInsertion >= 11
+                              child: levelsInsertion[10] == 1
                                   ? Container(
                                       constraints: BoxConstraints.expand(),
                                       decoration: BoxDecoration(
