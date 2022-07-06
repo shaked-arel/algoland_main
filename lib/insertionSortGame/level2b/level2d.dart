@@ -1,3 +1,4 @@
+import 'package:binarysearch/bubbleSortGame/level3/level3b.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -258,12 +259,14 @@ class _Level2dState extends State<Level2dPage> with TickerProviderStateMixin {
                                         style: TextStyle(fontSize: 20),
                                       ),
                                       onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            new MaterialPageRoute(
-                                              builder: (context) =>
-                                                  DragScreen(),
-                                            ));
+                                        Navigator.pop(context);
+                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => DragScreen()));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     new MaterialPageRoute(
+                                        //       builder: (context) =>
+                                        //           DragScreen(),
+                                        //     ));
                                       },
                                     ),
                                   ),
@@ -312,12 +315,14 @@ class _Level2dState extends State<Level2dPage> with TickerProviderStateMixin {
                                         style: TextStyle(fontSize: 20),
                                       ),
                                       onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            new MaterialPageRoute(
-                                              builder: (context) =>
-                                                  Level2dPage(),
-                                            ));
+                                        Navigator.pop(context);
+                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level2dPage()));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     new MaterialPageRoute(
+                                        //       builder: (context) =>
+                                        //           Level2dPage(),
+                                        //     ));
                                       },
                                     ),
                                   ),

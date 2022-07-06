@@ -268,12 +268,14 @@ class _Level2bState extends State<Level2bPage> with TickerProviderStateMixin {
                                         style: TextStyle(fontSize: 20),
                                       ),
                                       onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            new MaterialPageRoute(
-                                              builder: (context) =>
-                                                  Level2cPage(),
-                                            ));
+                                        Navigator.pop(context);
+                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level2cPage()));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     new MaterialPageRoute(
+                                        //       builder: (context) =>
+                                        //           Level2cPage(),
+                                        //     ));
                                       },
                                     ),
                                   ),
@@ -322,12 +324,14 @@ class _Level2bState extends State<Level2bPage> with TickerProviderStateMixin {
                                         style: TextStyle(fontSize: 20),
                                       ),
                                       onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            new MaterialPageRoute(
-                                              builder: (context) =>
-                                                  Level2bPage(),
-                                            ));
+                                        Navigator.pop(context);
+                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level2bPage()));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     new MaterialPageRoute(
+                                        //       builder: (context) =>
+                                        //           Level2bPage(),
+                                        //     ));
                                       },
                                     ),
                                   ),

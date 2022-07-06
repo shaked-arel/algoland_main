@@ -184,12 +184,14 @@ class _Level1eState extends State<Level1ePage> with TickerProviderStateMixin {
                                             style: TextStyle(fontSize: 20),
                                           ),
                                           onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                new MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Level2Page(),
-                                                ));
+                                            Navigator.pop(context);
+                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level2Page()));
+                                            // Navigator.push(
+                                            //     context,
+                                            //     new MaterialPageRoute(
+                                            //       builder: (context) =>
+                                            //           Level2Page(),
+                                            //     ));
                                           },
                                         ),
                                       ),
@@ -239,12 +241,14 @@ class _Level1eState extends State<Level1ePage> with TickerProviderStateMixin {
                                             style: TextStyle(fontSize: 20),
                                           ),
                                           onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                new MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Level1ePage(),
-                                                ));
+                                            Navigator.pop(context);
+                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level1ePage()));
+                                            // Navigator.push(
+                                            //     context,
+                                            //     new MaterialPageRoute(
+                                            //       builder: (context) =>
+                                            //           Level1ePage(),
+                                            //     ));
                                           },
                                         ),
                                       ),
