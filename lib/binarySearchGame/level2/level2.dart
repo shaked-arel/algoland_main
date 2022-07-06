@@ -254,12 +254,14 @@ class _Level2PageState extends State<Level2Page> {
                                         style: TextStyle(fontSize: 20),
                                       ),
                                       onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            new MaterialPageRoute(
-                                              builder: (context) =>
-                                                  Level2bPage(),
-                                            ));
+                                        Navigator.pop(context);
+                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level2bPage()));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     new MaterialPageRoute(
+                                        //       builder: (context) =>
+                                        //           Level2bPage(),
+                                        //     ));
                                       },
                                     ),
                                   ),
@@ -308,12 +310,14 @@ class _Level2PageState extends State<Level2Page> {
                                         style: TextStyle(fontSize: 20),
                                       ),
                                       onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            new MaterialPageRoute(
-                                              builder: (context) =>
-                                                  Level2Page(),
-                                            ));
+                                        Navigator.pop(context);
+                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level2Page()));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     new MaterialPageRoute(
+                                        //       builder: (context) =>
+                                        //           Level2Page(),
+                                        //     ));
                                       },
                                     ),
                                   ),

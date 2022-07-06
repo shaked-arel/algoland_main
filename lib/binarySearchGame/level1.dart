@@ -1,4 +1,5 @@
 import 'package:binarysearch/global.dart';
+import 'package:binarysearch/other/image.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../backButton.dart';
@@ -36,7 +37,7 @@ class _Level1PageState extends State<Level1Page> with TickerProviderStateMixin {
           foregroundColor: Palette.darkBlue2, // appbar text color.
         ),
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('assets/game-backg.png'), fit: BoxFit.cover),
           ),
@@ -137,7 +138,7 @@ class _Level1PageState extends State<Level1Page> with TickerProviderStateMixin {
                                 backgroundColor: Color(0xfbfbfbfb),
                                 title: Text("Good job"),
                                 content: Image.asset(
-                                  'assets/good.gif',
+                                  Images.goodGif,
                                   width: 200,
                                   height: 200,
                                 ),
@@ -157,12 +158,8 @@ class _Level1PageState extends State<Level1Page> with TickerProviderStateMixin {
                                             style: TextStyle(fontSize: 20),
                                           ),
                                           onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                new MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Level1bPage(),
-                                                ));
+                                            Navigator.pop(context);
+                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level1bPage()));
                                           },
                                         ),
                                       ),
@@ -211,7 +208,7 @@ class _Level1PageState extends State<Level1Page> with TickerProviderStateMixin {
                                 backgroundColor: Color(0xfbfbfbfb),
                                 title: Text("Try Again"),
                                 content: Image.asset(
-                                  'assets/tryAgain.gif',
+                                  Images.againGif,
                                   width: 200,
                                   height: 200,
                                 ),
@@ -231,12 +228,14 @@ class _Level1PageState extends State<Level1Page> with TickerProviderStateMixin {
                                             style: TextStyle(fontSize: 20),
                                           ),
                                           onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                new MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Level1Page(),
-                                                ));
+                                            Navigator.pop(context);
+                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level1Page()));
+                                            // Navigator.push(
+                                            //     context,
+                                            //     new MaterialPageRoute(
+                                            //       builder: (context) =>
+                                            //           Level1Page(),
+                                            //     ));
                                           },
                                         ),
                                       ),
