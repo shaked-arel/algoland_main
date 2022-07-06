@@ -253,12 +253,14 @@ class _Level2dState extends State<Level2dPage> with TickerProviderStateMixin {
                                         style: TextStyle(fontSize: 20),
                                       ),
                                       onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            new MaterialPageRoute(
-                                              builder: (context) =>
-                                                  DragScreen(),
-                                            ));
+                                        Navigator.pop(context);
+                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => DragScreen()));
+                                      //   Navigator.push(
+                                      //       context,
+                                      //       new MaterialPageRoute(
+                                      //         builder: (context) =>
+                                      //             DragScreen(),
+                                      //       ));
                                       },
                                     ),
                                   ),
@@ -307,12 +309,14 @@ class _Level2dState extends State<Level2dPage> with TickerProviderStateMixin {
                                         style: TextStyle(fontSize: 20),
                                       ),
                                       onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            new MaterialPageRoute(
-                                              builder: (context) =>
-                                                  Level2dPage(),
-                                            ));
+                                        Navigator.pop(context);
+                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level2dPage()));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     new MaterialPageRoute(
+                                        //       builder: (context) =>
+                                        //           Level2dPage(),
+                                        //     ));
                                       },
                                     ),
                                   ),

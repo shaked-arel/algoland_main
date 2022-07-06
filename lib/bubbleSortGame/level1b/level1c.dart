@@ -74,7 +74,7 @@ class _Level1cState extends State<Level1cPage> with TickerProviderStateMixin {
                 height: 50,
               ),
               SizedBox(
-                width: 390,
+                width: 415,
                 height: 90,
                 child: Padding(
                     padding: const EdgeInsets.all(8),
@@ -168,12 +168,14 @@ class _Level1cState extends State<Level1cPage> with TickerProviderStateMixin {
                                             style: TextStyle(fontSize: 20),
                                           ),
                                           onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                new MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Level1dPage(),
-                                                ));
+                                            Navigator.pop(context);
+                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level1dPage()));
+                                            // Navigator.push(
+                                            //     context,
+                                            //     new MaterialPageRoute(
+                                            //       builder: (context) =>
+                                            //           Level1dPage(),
+                                            //     ));
                                           },
                                         ),
                                       ),
@@ -223,12 +225,14 @@ class _Level1cState extends State<Level1cPage> with TickerProviderStateMixin {
                                             style: TextStyle(fontSize: 20),
                                           ),
                                           onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                new MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Level1cPage(),
-                                                ));
+                                            Navigator.pop(context);
+                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level1cPage()));
+                                            // Navigator.push(
+                                            //     context,
+                                            //     new MaterialPageRoute(
+                                            //       builder: (context) =>
+                                            //           Level1cPage(),
+                                            //     ));
                                           },
                                         ),
                                       ),

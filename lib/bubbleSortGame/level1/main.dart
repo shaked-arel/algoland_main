@@ -1,3 +1,4 @@
+import 'package:binarysearch/other/image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../backButton.dart';
@@ -54,7 +55,7 @@ class _Level1State extends State<Level1Page> with TickerProviderStateMixin {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/game-backg.png'), fit: BoxFit.cover),
+                image: AssetImage(Images.easyLevel), fit: BoxFit.cover),
           ),
           child: Column(
             children: <Widget>[
@@ -71,7 +72,7 @@ class _Level1State extends State<Level1Page> with TickerProviderStateMixin {
                 height: 50,
               ),
               SizedBox(
-                width: 390,
+                width: 415,
                 height: 90,
                 child: Padding(
                     padding: const EdgeInsets.all(8),
@@ -165,12 +166,8 @@ class _Level1State extends State<Level1Page> with TickerProviderStateMixin {
                                             style: TextStyle(fontSize: 20),
                                           ),
                                           onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                new MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Level1bPage(),
-                                                ));
+                                            Navigator.pop(context);
+                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level1bPage()));
                                           },
                                         ),
                                       ),
@@ -220,12 +217,8 @@ class _Level1State extends State<Level1Page> with TickerProviderStateMixin {
                                             style: TextStyle(fontSize: 20),
                                           ),
                                           onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                new MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Level1Page(),
-                                                ));
+                                            Navigator.pop(context);
+                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level1Page()));
                                           },
                                         ),
                                       ),

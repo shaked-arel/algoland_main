@@ -100,11 +100,13 @@ class _DragScreenState extends State<DragScreen> with TickerProviderStateMixin {
                                   style: TextStyle(fontSize: 20),
                                 ),
                                 onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      new MaterialPageRoute(
-                                        builder: (context) => DragScreen2(),
-                                      ));
+                                  Navigator.pop(context);
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => DragScreen2()));
+                                //   Navigator.push(
+                                //       context,
+                                //       new MaterialPageRoute(
+                                //         builder: (context) => DragScreen2(),
+                                //       ));
                                 },
                               ),
                             ),

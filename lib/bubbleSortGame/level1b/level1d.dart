@@ -72,7 +72,7 @@ class _Level1dState extends State<Level1dPage> with TickerProviderStateMixin {
                 height: 50,
               ),
               SizedBox(
-                width: 390,
+                width: 415,
                 height: 90,
                 child: Padding(
                     padding: const EdgeInsets.all(8),
@@ -166,12 +166,14 @@ class _Level1dState extends State<Level1dPage> with TickerProviderStateMixin {
                                             style: TextStyle(fontSize: 20),
                                           ),
                                           onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                new MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Level2Page(),
-                                                ));
+                                            Navigator.pop(context);
+                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Level2Page()));
+                                            // Navigator.push(
+                                            //     context,
+                                            //     new MaterialPageRoute(
+                                            //       builder: (context) =>
+                                            //           Level2Page(),
+                                            //     ));
                                           },
                                         ),
                                       ),
