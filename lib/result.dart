@@ -17,11 +17,6 @@ class Result extends StatelessWidget {
   String get resultPhrase {
     String resultText;
     resultText = '';
-    //+
-    // resultScore.toString() +
-    // '/' +
-    // numOfQuestions.toString() +
-    // ' correct answers';
     if (resultScore < numOfQuestions) {
       resultText += "\r\n" "\r\n" 'Try again!';
     } else {
@@ -86,16 +81,21 @@ class Result extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: CircularPercentIndicator(
-            radius: 90,
-            percent: resultScore * 20 / 100,
-            lineWidth: 6,
-            backgroundColor: Palette.lightgray,
-            progressColor: Palette.yellow,
-            center: new Text(resultScore.toString() + '/' + '5',
-                style: GoogleFonts.robotoFlex(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
-                    color: Palette.yellow)),
+              radius: 90,
+              percent: resultScore * 20 / 100,
+              lineWidth: 8,
+              backgroundColor: Palette.lightgray,
+              progressColor: Palette.yellow,
+              center: RichText(
+                text: TextSpan(
+                  style: GoogleFonts.robotoFlex(
+                      fontWeight: FontWeight.bold, color: Palette.lightgray, fontSize: 37),
+                  children: <TextSpan>[
+                    TextSpan(text: resultScore.toString(), style: GoogleFonts.robotoFlex(color: Palette.yellow)),
+                    TextSpan(text: '/' + '5',),
+                  ],
+                ),
+              )
           ),
         ),
         Text(

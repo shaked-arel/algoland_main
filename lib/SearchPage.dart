@@ -22,25 +22,14 @@ class SearchPage<T extends SearchProvider> extends StatelessWidget {
         Column(
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            // Padding(
-            //   padding: const EdgeInsets.only(top: 0.0),
-            //   child: Text(
-            //     title,
-            //     style: Theme.of(context).textTheme.headline4,
-            //   ),
-            // ),
-            //Image.asset('assets/robot1.png', width: 70),
+            SizedBox(height: 50),
             SearchMessage(),
-            //const SizedBox(height: 24),
-            //Below can not be constant
-            //const SizedBox(height: 0),
             Expanded(
               child: SearchVisual(),
             ),
             SearchSpeed(),
             Search(),
-
-            const SizedBox(height: 70),
+            SizedBox(height: 70),
             Stack(children: <Widget>[
               Align(
                 alignment: Alignment(0.3, 0.5),
@@ -74,7 +63,7 @@ class SearchPage<T extends SearchProvider> extends StatelessWidget {
         SearchIndicator(
           parentKey: key,
         ),
-        const SizedBox(height: 70),
+        SizedBox(height: 70),
         // Align(
         //   alignment: Alignment.bottomLeft,
         //   child: Image.asset('assets/simulations.png', width: 100),

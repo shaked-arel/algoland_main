@@ -9,7 +9,7 @@ class SearchSpeed extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text('Search Speed', style: Theme.of(context).textTheme.caption),
+        //Text('Search Speed', style: Theme.of(context).textTheme.caption),
         Consumer<BinarySearchProvider>(
           builder: (context, provider, child) {
             return Container(

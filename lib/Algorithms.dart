@@ -25,7 +25,8 @@ class Algorithms extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          backgroundColor: Colors.white, // appbar color.
+          backgroundColor: Colors.white,
+          // appbar color.
           foregroundColor: Palette.darkBlue2, // appbar text color.
         ),
         body: ListView(
@@ -55,21 +56,21 @@ class Algorithms extends StatelessWidget {
                         child: Image.asset('assets/robot1.png', width: 70),
                       ),
                       Align(
-                        alignment: Alignment.center,
-                        child: CircularPercentIndicator(
-                          radius: 200,
-                          percent: precentBubble / 100,
-                          animation: true,
-                          lineWidth: 30,
-                          backgroundColor: Palette.lightgray,
-                          progressColor: Palette.yellow,
-                          center: new Text(precentBubble.toString() + '%',
-                              style: GoogleFonts.robotoFlex(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 45.0,
-                                  color: Palette.yellow)),
-                        ),
-                      ),
+                          alignment: Alignment.center,
+                          child: CircularPercentIndicator(
+                            radius: 200,
+                            percent: precentBubble / 100,
+                            animation: true,
+                            lineWidth: 30,
+                            backgroundColor: Palette.lightgray,
+                            progressColor: Palette.yellow,
+                            center: Text(precentBubble.toString() + '%',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.robotoFlex(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 45.0,
+                                    color: Palette.yellow)),
+                          ),),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: TextButton(
@@ -127,6 +128,7 @@ class Algorithms extends StatelessWidget {
                           backgroundColor: Palette.lightgray,
                           progressColor: Colors.orange,
                           center: new Text(precentInsertion.toString() + '%',
+                              textAlign: TextAlign.center,
                               style: GoogleFonts.robotoFlex(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 45.0,
@@ -190,6 +192,7 @@ class Algorithms extends StatelessWidget {
                           backgroundColor: Palette.lightgray,
                           progressColor: Palette.lightBlue2,
                           center: new Text(precentBinary.toString() + '%',
+                              textAlign: TextAlign.center,
                               style: GoogleFonts.robotoFlex(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 45.0,

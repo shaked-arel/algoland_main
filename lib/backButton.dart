@@ -1,3 +1,4 @@
+import 'package:binarysearch/BinarySearchGame.dart';
 import 'package:flutter/material.dart';
 import 'config/palette.dart';
 
@@ -17,7 +18,8 @@ class AllBackButton extends StatelessWidget {
         style: TextStyle(fontSize: 20),
       ),
       onPressed: () {
-        Navigator.of(context).popUntil((route) => route.isFirst);
+        int count= 0;
+        Navigator.of(context).popUntil((_) => count++ >= 2);
       },
     );
   }

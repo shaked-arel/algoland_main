@@ -1,3 +1,4 @@
+import 'package:binarysearch/other/image.dart';
 import '../config/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,18 +25,25 @@ class Quiz extends StatelessWidget {
       children: [
         Column(
           children: [
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             Align(
               alignment: Alignment.center,
               child: CircularPercentIndicator(
-                radius: 60,
+                radius: 80,
                 percent: index * 20 / 100,
-                lineWidth: 6,
+                lineWidth: 8,
                 backgroundColor: Palette.lightgray,
                 progressColor: Palette.yellow,
-                center: new Text(index.toString() + '/' + '5',
-                    style: GoogleFonts.robotoFlex(
-                        fontWeight: FontWeight.bold, color: Palette.yellow)),
+                center: new RichText(
+              text: TextSpan(
+                style: GoogleFonts.robotoFlex(
+                    fontWeight: FontWeight.bold, color: Palette.lightgray, fontSize: 37),
+              children: <TextSpan>[
+                TextSpan(text: index.toString(), style: GoogleFonts.robotoFlex(color: Palette.yellow)),
+                TextSpan(text: '/' + '5',),
+              ],
+            ),
+    )
               ),
             ),
             Question(
@@ -58,18 +66,18 @@ class Quiz extends StatelessWidget {
           if (score == 1) {
             return Align(
               alignment: Alignment.bottomCenter,
-              child: Image.asset('assets/true.png'),
+              child: Image.asset(Images.trueAns),
             );
           }
           if (score == 0) {
             return Align(
               alignment: Alignment.bottomCenter,
-              child: Image.asset('assets/false.png'),
+              child: Image.asset(Images.falseAns),
             );
           } else {
             return Align(
               alignment: Alignment.bottomCenter,
-              child: Image.asset('assets/question.png'),
+              child: Image.asset(Images.question),
             );
           }
         }),

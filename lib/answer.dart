@@ -18,7 +18,9 @@ class ColorChange extends State<Answer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
+      padding: const EdgeInsets.all(7),
+      width: 350,
+      height: 55,
       child: RaisedButton(
         color: col,
         textColor: Colors.white,
@@ -27,7 +29,7 @@ class ColorChange extends State<Answer> {
         ),
         child: Text(
           widget.answerText,
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 19),
         ),
         onPressed: () {
           setState(() => col = widget.color);
