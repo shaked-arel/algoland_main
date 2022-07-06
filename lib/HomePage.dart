@@ -122,12 +122,12 @@ class HomePage extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           side: BorderSide(
                             width: 2.0,
-                            color: Palette.darkBlue2,
+                            color: Palette.lightBlue2,
                           ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),
                           ),
-                          primary: Colors.white,
+                          primary: Palette.lightBlue2,
                         ),
                         onPressed: () {
                           Navigator.push(
@@ -138,8 +138,9 @@ class HomePage extends StatelessWidget {
                         child: Text(
                           "Get Started",
                           style: GoogleFonts.robotoFlex(
-                            color: Colors.black,
-                            fontSize: 15,
+                            color: Colors.white,
+                            fontSize: 17,
+
                           ),
                         ),
                       )),
@@ -155,7 +156,7 @@ class HomePage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         side: BorderSide(
                           width: 2.0,
-                          color: Palette.darkBlue2,
+                          color: Palette.lightBlue2
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
