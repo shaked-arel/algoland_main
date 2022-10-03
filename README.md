@@ -15,7 +15,9 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+# Explanation Video:
+Press [here](https://www.youtube.com/watch?v=_iXc972RqeI) to see our video explanation.
 
-Press [here](https://www.youtube.com/watch?v=_iXc972RqeI) to see our video explanation
+
 [Jira link](https://finalproject-algo.atlassian.net/jira/software/projects/FA/boards/1) 
 
