@@ -1,4 +1,4 @@
-# algoland
+# Algoland
 
 A new Flutter project.
 
